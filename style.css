@@ -1,6 +1,7 @@
+/* Responsive logo sizing */
 .reveal .slide-logo {
-  height: 175px !important;
-  width: 200px !important;
+  width: min(200px, 20vw) !important;
+  height: auto !important;
   max-width: unset !important;
   max-height: unset !important;
 }
