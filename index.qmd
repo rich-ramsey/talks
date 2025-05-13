@@ -2,12 +2,40 @@
 title: "Talks"
 author: "Richard Ramsey"
 format: html
+editor_options: 
+  chunk_output_type: console
 ---
 
 ## Some slides from recent talks
 
-- [Talk 1 Title](talk1/) - Conference Name, Date  
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
 
-- [Talk 2 Title](talk2/) - Conference Name, Date  
+library(tidyverse)
+library(knitr)
+library(yaml)
 
-For more information, see my [website](https://rich-ramsey.com).
+# Read the YAML file
+talks_data <- read_yaml("talks_data.yml") %>%
+  bind_rows() %>%
+  mutate(
+    date = as.Date(date),
+    date_formatted = format(date, "%B %d, %Y"),
+    talk_link = paste0("[", title, "](", folder, "/){target=\"_blank\"}")
+  ) %>%
+  arrange(desc(date))
+
+# Display as a table
+kable(
+  talks_data %>% select(date_formatted, talk_link, venue, location),
+  col.names = c("Date", "Title", "Venue", "Location"),
+  escape = FALSE
+)
+```
+
+
+For more information on my lab's research, see my [website](https://rich-ramsey.com/){target=\"_blank\"}.
+  
+For source code, go to the [GitHub repo](https://github.com/rich-ramsey/talks){target=\"_blank\"}.
