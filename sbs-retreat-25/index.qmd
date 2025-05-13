@@ -15,7 +15,7 @@ format:
       embed-resources: true
       transition: none
       transition-speed: fast
-      logo: ../images/sbs_watermelon.png
+      logo: ../images/cbs_hex.png
       css: ../style.css
 editor: source
 editor_options: 
@@ -262,7 +262,7 @@ formula = dv ~ 1 + condition +
 
 ## Estimation approaches - parameters
 
-![](images/coef_plot.png){fig-align="center"}
+![](images/coef_plot.png){fig-align="left"}
 
 ## Estimation approaches - wider reading
 
