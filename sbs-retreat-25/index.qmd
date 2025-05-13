@@ -54,11 +54,7 @@ fig-align="center"
 
 -   Cognitive neuroscience / experimental psychology.
 
-<br>
-
 -   Social perception and cognition.
-
-<br>
 
 -   I am not a statistician. (Did I say that already?)
 
@@ -100,7 +96,7 @@ A quote from Andrew Gelman [(Gelman, 2024)](https://sites.stat.columbia.edu/gelm
 
 ## Champagne inference on a beer budget
 
-All statistical models are fundamentally limited and need to be framed within the wider scientific context [@mcelreath2020], such as ...:
+All statistical models are fundamentally limited and need to be framed within the wider scientific context [@mcelreath2020], such as:
 
 ::::: columns
 ::: {.column width="50%"}
@@ -151,19 +147,17 @@ Before we make inferences and draw conclusions, we should spend more time [@sche
 ## Single-level linear regression
 
 ::: {.grid}
-
 ::: {.g-col-12 style="font-size: 1.5em;"}
-$$\color{orange}{Y_i} = \color{blue}{\beta_0} + \color{green}{\beta_1} \color{purple}{X_i} + \color{magenta}{\varepsilon_i}$$
+$$\color{red}{Y_i} = \color{orange}{\beta_0} + \color{green}{\beta_1} \color{blue}{X_i} + \color{violet}{\varepsilon_i}$$
 :::
 
 ::: {.g-col-12 style="font-size: 0.7em;"}
-- $\color{orange}{Y_i}$: The outcome/response variable for observation $i$
-- $\color{blue}{\beta_0}$: The intercept (value of $Y$ when $X = 0$)
+- $\color{red}{Y_i}$: The outcome/response variable for observation $i$
+- $\color{orange}{\beta_0}$: The intercept (value of $Y$ when $X = 0$)
 - $\color{green}{\beta_1}$: The slope (change in $Y$ for one unit increase in $X$)
-- $\color{purple}{X_i}$: The predictor variable for observation $i$
-- $\color{magenta}{\varepsilon_i}$: The error term (residual) for observation $i$
+- $\color{blue}{X_i}$: The predictor variable for observation $i$
+- $\color{violet}{\varepsilon_i}$: The error term (residual) for observation $i$
 :::
-
 :::
 
 ## Common statistical tests are forms of linear regression
@@ -176,23 +170,23 @@ $$\color{orange}{Y_i} = \color{blue}{\beta_0} + \color{green}{\beta_1} \color{pu
 - Go away, get some data and run single level regressions in R.
 - Use different types of data - continuous and categorical predictors etc.
 - I bet there are a million tutorials online.
-- **Aim:** understand the basics forwards, backwards and sideways - as the rest builds on this core foundation.
+- **Aim:** understand the basics of single level regression - the rest builds on this core foundation.
 
 ## Multi-level linear regression
 
 ::: {.grid}
 ::: {.g-col-12 style="font-size: 1.5em;"}
-$$\color{orange}{Y_{ij}} = (\color{blue}{\gamma_{00}} + \color{cyan}{u_{0j}}) + (\color{green}{\gamma_{10}} + \color{teal}{u_{1j}})\color{purple}{X_{ij}} + \color{magenta}{\varepsilon_{ij}}$$
+$$\color{red}{Y_{ij}} = (\color{orange}{\gamma_{00}} + \color{yellow}{u_{0j}}) + (\color{green}{\gamma_{10}} + \color{cyan}{u_{1j}})\color{blue}{X_{ij}} + \color{violet}{\varepsilon_{ij}}$$
 :::
 
 ::: {.g-col-12 style="font-size: 0.7em;"}
-- $\color{orange}{Y_{ij}}$: The outcome variable for observation $i$ in group $j$
-- $\color{blue}{\gamma_{00}}$: The fixed effect intercept (population average)
-- $\color{cyan}{u_{0j}}$: The varying intercept for group $j$
+- $\color{red}{Y_{ij}}$: The outcome variable for observation $i$ in group $j$
+- $\color{orange}{\gamma_{00}}$: The fixed effect intercept (population average)
+- $\color{yellow}{u_{0j}}$: The random intercept for group $j$
 - $\color{green}{\gamma_{10}}$: The fixed effect slope (population average)
-- $\color{teal}{u_{1j}}$: The varying slope for group $j$
-- $\color{purple}{X_{ij}}$: The predictor variable for observation $i$ in group $j$
-- $\color{magenta}{\varepsilon_{ij}}$: The error term for observation $i$ in group $j$
+- $\color{cyan}{u_{1j}}$: The random slope for group $j$
+- $\color{blue}{X_{ij}}$: The predictor variable for observation $i$ in group $j$
+- $\color{violet}{\varepsilon_{ij}}$: The error term for observation $i$ in group $j$
 :::
 :::
 
@@ -201,9 +195,9 @@ $$\color{orange}{Y_{ij}} = (\color{blue}{\gamma_{00}} + \color{cyan}{u_{0j}}) + 
 <br>
 
 -   One general and versatile way to approach data analysis.
--   It avoids the obsession with picking the "right" statistical test.
--   There is an active community of users and lots of resources available to guide you.
--   It is suitable for a wide range of data in psychology and neuroscience.
+-   It avoids picking the "right" statistical test.
+-   There is an active community of users and lots of resources.
+-   It is suitable for most data in psychology and human neuroscience.
 
 ## Summary vs trial-level data
 
