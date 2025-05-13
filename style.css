@@ -1,0 +1,11 @@
+.reveal .slide-logo {
+  height: 100px !important;
+  width: 200px !important;
+  max-width: unset !important;
+  max-height: unset !important;
+}
+
+/* Hide date on title slide */
+.reveal .title-slide .quarto-title-authors-date .date {
+  display: none !important;
+}

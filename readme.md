@@ -1,6 +1,7 @@
-This is a test bed for building a github repo for sharing talks.
+A selection of some recent talks.
 
 ## What to do?
 
-View the slides online here: <https://rich-ramsey.github.io/talks_example/>
+View the slides online here: <https://rich-ramsey.github.io/talks/>
 
+Or go to my website: <https://rich-ramsey.com/talks/>

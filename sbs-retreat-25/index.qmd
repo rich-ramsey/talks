@@ -1,0 +1,309 @@
+---
+title: "Data analysis and statistics"
+subtitle: "[rich-ramsey.github.io/talks/sbs-retreat-25/](https://github.com/rich-ramsey){target='_blank'}"
+author: "Richard Ramsey  \n[www.rich-ramsey.com](https://rich-ramsey.com){target='_blank' style='color:#2a76dd; font-size:22pt;'}"
+venue: "SBS Lab Retreat 2025"
+location: "Weggis, Switzerland"
+metadata:
+  presentation-date: "2025-05-29"  # Custom metadata field
+bibliography: references.bib
+nocite: |
+  [@kruschke2014; @winter2019]
+format:
+  revealjs:
+      slide-number: true
+      embed-resources: true
+      transition: none
+      transition-speed: fast
+      logo: ../images/sbs_watermelon.png
+      css: ../style.css
+editor: source
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r load-packages, include = FALSE}
+library(papaja)
+library(citr)
+
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Talk overview
+
+1.  Context.
+2.  Caution.
+3.  Regression.
+4.  Summary.
+
+**Aim:** Provide a context for thinking about data analysis and statistics.
+
+**Disclaimer:** I'm not a statistician. I'm not a statistician. I'm not a statistician. I'm not a ...
+
+# Context
+
+## Sampling from a larger population
+
+```{r sampling-plot, fig.cap="Image from: https://danawanzer.github.io/stats-with-jamovi/"}
+knitr::include_graphics("images/descriptive_vs_inference.png")
+```
+
+## My background
+
+<br>
+
+-   Cognitive neuroscience / experimental psychology.
+
+<br>
+
+-   Social perception and cognition.
+
+<br>
+
+-   I am not a statistician. (Did I say that already?)
+
+## My background
+
+<br>
+
+**My undergrad and postgrad stats classes looked like this:**
+
+-   Each week described a different statistical test.
+
+-   Your job was to choose the right test for a given type of data and run the test (usually via point-and-click in SPSS).
+
+-   Then you interpret the p-value.
+
+-   Easy, right?
+
+## My background
+
+**In the wake of the reproducibility crisis:**
+
+-   I felt the need to become more statistically literate.
+
+-   Enter:
+
+    -   Richard McElreath's excellent textbook [@mcelreath2020] 
+    -   Solomon Kurz's brilliant translation into `tidyverse` principles [@kurzStatisticalRethinkingSecondEd2023].
+    -   Various papers and books by [Andrew Gelman](https://sites.stat.columbia.edu/gelman/){target='_blank'}.
+
+# Caution #
+
+## Champagne inference on a beer budget
+
+<br>
+
+A quote from Andrew Gelman [(Gelman, 2024)](https://sites.stat.columbia.edu/gelman/research/published/jcp.pdf){target='_blank'}:
+
+> once the data have been collected, the most important decisions have already been done
+
+## Champagne inference on a beer budget
+
+All statistical models are fundamentally limited and need to be framed within the wider scientific context, such as ... [@mcelreath2020]:
+
+::::: columns
+::: {.column width="50%"}
+-   The importance of theory
+-   Open data and materials
+-   Pre-registration
+-   Meta-analyses
+:::
+
+::: {.column width="50%"}
+-   Computational modelling
+-   Data science
+-   Experimental design
+-   And many more besides
+:::
+:::::
+
+## Champagne inference on a beer budget
+
+Before we make inferences and draw conclusions, we should spend more time [@scheel2021]:
+
+-   Forming concepts.
+-   Developing valid measures.
+-   Identifying boundary conditions and auxillary assumptions.
+-   And so on...
+
+## Caution (!) is required
+
+<br>
+
+-   Statistical inference is not magical.
+-   Inferences rest on a bunch of assumptions and data quality.
+-   Inferences are likely to be fragile/tentative/suggestive.
+-   So, be cautious!
+-   And try to create research designs that do not rely too heavily on one particular part of your inferential model.
+
+## Towards statistical *thinking*
+
+<br>
+
+-   Develop a statistical philosophy rather than rely on historical statistical rituals [@gigerenzer2018].
+-   There are many different approaches to the same question.
+-   Have a sense of how your approach fits into the mix of options, in terms of pros and cons.
+-   Be able to defend and justify your choices explicitly.
+
+# A very brief introduction to multi-level regression
+
+## Multi-level regression: why bother?
+
+<br>
+
+-   One general and versatile way to approach data analysis.
+-   It avoids the obsession with picking the "right" statistical test.
+-   There is an active community of users and lots of resources available to guide you.
+
+## Statistical tests are forms of linear regression
+
+```{r tests-as-linear-plot, fig.cap= "https://lindeloev.github.io/tests-as-linear/"}
+knitr::include_graphics("images/tests_as_linear_models_top.png")
+```
+
+## Summary vs trial-level data
+
+::::: columns
+::: {.column width="50%"}
+![summary / aggregated data](images/agg_data.png){fig.align="center" height="500px"}
+:::
+
+::: {.column width="50%"}
+![trial-level data](images/trial_data.png){fig.align="center" height="500px"}
+:::
+:::::
+
+## Partial pooling or shrinkage
+
+### let's build in an intuition
+
+::::: columns
+::: {.column width="50%"}
+```{r fam-height-plot}
+knitr::include_graphics("images/family_height.png")
+```
+:::
+
+::: {.column width="50%"}
+```{r pop-plot}
+knitr::include_graphics("images/population.png")
+```
+:::
+:::::
+
+## Partial pooling or shrinkage
+
+### let's plot it
+
+```{r pooling-plot}
+knitr::include_graphics("images/pooling_plot.png")
+```
+
+## Fixed and varying effects
+
+<br>
+
+```{r model-formula-fixed, echo=TRUE}
+## specify the model formula with only fixed or population-level terms
+formula = dv ~ 1 + condition 
+```
+
+<br>
+
+```{r model-formula-vary-intercepts, echo=TRUE}
+## and now add varying intercepts per participant
+formula = dv ~ 1 + condition +
+          (1 | participant)
+```
+
+<br>
+
+```{r model-formula-vary-slopes, echo=TRUE}
+## and now add varying intercepts and slopes per participant
+formula = dv ~ 1 + condition +
+          (1 + condition | participant)
+```
+
+## Estimation approaches - basics
+
+```{r estimation-approaches, fig.cap="adapted from [(Kruschke & Liddell, 2018)](https://link.springer.com/article/10.3758/s13423-016-1221-4){target='_blank'}"}
+knitr::include_graphics("images/kruschke_plot.png")
+```
+
+## Estimation approaches - parameters
+
+```{r coef-plot}
+knitr::include_graphics("images/coef_plot.png")
+```
+
+## Estimation approaches - wider reading
+
+:::::: columns
+::: {.column width="33.3%"}
+```{r winter-book, out.height="25%"}
+knitr::include_graphics("images/winter_book.png")
+```
+:::
+
+::: {.column width="33.3%"}
+```{r mcelreath-book, out.height="25%"}
+knitr::include_graphics("images/mcelreath_book.png")
+```
+:::
+
+::: {.column width="33.3%"}
+```{r kruschke-book, out.height="25%"}
+knitr::include_graphics("images/kruschke_book.png")
+```
+:::
+::::::
+
+# Summary
+
+## Science needs more David Bowie
+
+<br>
+
+::::: columns
+::: {.column width="50%"}
+-   Statistical reform is important.
+
+-   But science is not a one-trick pony.
+
+-   We need more David Bowie.
+:::
+
+::: {.column width="50%"}
+```{r david-bowie, fig.cap="https://vocal.media/beat/reinventing-david-bowie"}
+knitr::include_graphics("images/david_bowie.jpg")
+```
+:::
+:::::
+
+## Thanks for your attention
+
+<br>
+
+**And thanks to these fine folks:**
+
+- John Bartlett for his [tutorial](https://bartlettje.github.io/dissemination_quarto/quarto_presentations.html#creating-a-quarto-presentation){target='_blank'} on reproducible presentations in R (*this is solid gold*).
+
+- Lisa Debruine for sharing lots of [example presentations](https://github.com/debruine/talks/tree/master){target='_blank'}
+
+## And here's my stuff
+
+<br>
+
+-   Slides:
+
+-   Code: 
+
+-   Website: [www.rich-ramsey.com](www.rich-ramsey.com){target='_blank'}
+
+-   Github: <https://github.com/rich-ramsey>{target='_blank'}
+
+## References
+
+::: {#refs}
+:::
