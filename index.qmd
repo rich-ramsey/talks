@@ -1,0 +1,13 @@
+---
+title: "Talks"
+author: "Richard Ramsey"
+format: html
+---
+
+## Some slides from recent talks
+
+- [Talk 1 Title](talk1/) - Conference Name, Date  
+
+- [Talk 2 Title](talk2/) - Conference Name, Date  
+
+For more information, see my [website](https://rich-ramsey.com).

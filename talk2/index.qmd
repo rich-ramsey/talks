@@ -1,0 +1,6 @@
+---
+title: "talk2"
+format: revealjs
+---
+
+# Talk 2 
