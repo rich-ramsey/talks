@@ -1,6 +1,6 @@
 ---
 title: "Data analysis and statistics"
-subtitle: "[rich-ramsey.github.io/talks/sbs-retreat-25/](https://github.com/rich-ramsey){target='_blank'}"
+subtitle: "[rich-ramsey.github.io/talks/sbs-retreat-25/](https://rich-ramsey.github.io/talks/sbs-retreat-25/){target='_blank'}"
 author: "Richard Ramsey  \n[www.rich-ramsey.com](https://rich-ramsey.com){target='_blank' style='color:#2a76dd; font-size:22pt;'}"
 venue: "SBS Lab Retreat 2025"
 location: "Weggis, Switzerland"
@@ -35,28 +35,23 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ## Aim ##
+Provide the lab with a general context for thinking about data analysis and statistics.
 
-:::: {.columns}
-::: {.column width="60%"}
-
-<br>
-
-- **Aim:** Provide the lab with a general context for thinking about data analysis and statistics.
-
-- **Disclaimer:** I'm not a statistician. I'm not a statistician. I'm not a statistician...
+::: {style="text-align: center;"}
+![](images/confused.png){width=200px} ![](images/analysis.png){width=200px}
 :::
 
-::: {.column width="40%"}
-![](images/confused.png){width=200px}\
-![](images/analysis.png){width=200px}
+::: {.fragment}
+::: {.callout-warning}
+## Warning
+I'm not a statistician. I'm not a statistician. I'm not a statistician...
 :::
-::::
-
+:::
 
 ## Overview ##
 
 :::: {.columns}
-::: {.column width="30%"}
+::: {.column width="40%"}
 
 <br>
 
@@ -66,17 +61,15 @@ knitr::opts_chunk$set(echo = FALSE)
 4.  Summary.
 :::
 
-::: {.column width="70%"}
+::: {.column width="60%"}
 
 <br>
 
-![](images/plan.png){width=200px}
+<!-- ![](images/plan.png){width=200px} -->
 ![](images/lecture.png){width=200px}
 ![](images/discussion.png){width=200px}
 :::
 ::::
-
-
 
 # Background
 
@@ -98,31 +91,32 @@ fig-align="center"
 
 - More recently: open science, methods and meta-science.
 
-## My background
+## My background 
 
 <br>
 
 **My undergrad and postgrad stats classes looked like this:**
 
--   Each week described a different statistical test.
+::: {.incremental}
+- Each week described a different statistical test.
 
--   Your job was to choose the right test for a given type of data and run the test (usually via point-and-click in SPSS).
+- Your job was to choose the right test for a given type of data and run the test (usually via point-and-click in SPSS).
 
--   Then you interpret the p-value.
+- Then you interpret the p-value. 
 
--   Easy, right?
+- Job done. Easy, right?
+:::
 
 ## My background
 
-**In the wake of the reproducibility crisis:**
+**In the wake of the reproducibility crisis, I felt the need to become more statistically literate.**
 
--   I felt the need to become more statistically literate.
-
--   Enter:
-
+::: {.incremental}
+- Enter:
     -   Richard McElreath's excellent textbook [@mcelreath2020] 
     -   Solomon Kurz's brilliant translation into `tidyverse` principles [@kurzStatisticalRethinkingSecondEd2023].
     -   Various papers and books by [Andrew Gelman](https://sites.stat.columbia.edu/gelman/){target='_blank'}.
+:::
 
 # Caution #
 
@@ -171,7 +165,7 @@ Before we make inferences and draw conclusions, we should spend more time [@sche
 
 ::: {.incremental}
 -   Statistical inference is not magical.
--   Inferences rest on a lot of assumptions and data quality.
+-   Inferences rest on many assumptions and data quality.
 -   Inferences are likely to be fragile/tentative/suggestive.
 -   So, be cautious!
 -   And try to create research designs that do not rely too heavily on one particular part of your inferential model.
@@ -197,7 +191,7 @@ Before we make inferences and draw conclusions, we should spend more time [@sche
 $$\color{red}{Y_i} = \color{orange}{\beta_0} + \color{green}{\beta_1} \color{blue}{X_i} + \color{violet}{\varepsilon_i}$$
 :::
 
-::: {.g-col-12 style="font-size: 0.7em;" .incremental}
+::: {.g-col-12 style="font-size: 0.9em;" .incremental}
 - $\color{red}{Y_i}$: The outcome/response variable for observation $i$
 - $\color{orange}{\beta_0}$: The intercept (value of $Y$ when $X = 0$)
 - $\color{green}{\beta_1}$: The slope (change in $Y$ for one unit increase in $X$)
@@ -213,12 +207,18 @@ $$\color{red}{Y_i} = \color{orange}{\beta_0} + \color{green}{\beta_1} \color{blu
 
 ## Homework
 
-::: {.incremental}
+::::: columns 
+::: {.column width="70%" .incremental}
 - Go away, get some data and run single level regressions in R.
 - Use different types of data - continuous and categorical predictors etc.
-- I bet there are a million tutorials online.
+- _*I bet there are a million tutorials online.*_
 - **Aim:** understand the basics of single level regression - the rest builds on this core foundation.
 :::
+
+::: {.column width="30%"}
+![](images/homework.png){width=200px}
+:::
+:::::
 
 ## Multi-level linear regression
 
@@ -227,7 +227,7 @@ $$\color{red}{Y_i} = \color{orange}{\beta_0} + \color{green}{\beta_1} \color{blu
 $$\color{red}{Y_{ij}} = (\color{orange}{\gamma_{00}} + \color{yellow}{u_{0j}}) + (\color{green}{\gamma_{10}} + \color{cyan}{u_{1j}})\color{blue}{X_{ij}} + \color{violet}{\varepsilon_{ij}}$$
 :::
 
-::: {.g-col-12 style="font-size: 0.7em;" .incremental}
+::: {.g-col-12 style="font-size: 0.9em;" .incremental}
 - $\color{red}{Y_{ij}}$: The outcome variable for observation $i$ in group $j$
 - $\color{orange}{\gamma_{00}}$: The fixed effect intercept (population average)
 - $\color{yellow}{u_{0j}}$: The random/varying intercept for group $j$
@@ -247,7 +247,7 @@ $$\color{red}{Y_{ij}} = (\color{orange}{\gamma_{00}} + \color{yellow}{u_{0j}}) +
 -   It avoids picking the "right" statistical test.
 -   There is an active community of users and lots of resources.
 -   It is suitable for most data in psychology and human neuroscience, which typically has a nested (multi-level) structure e.g., sub-groups within a bigger group.
--   Take advantage of partial pooling / shrinkage.
+-   It takes advantage of partial pooling / shrinkage.
 :::
 
 ## Summary vs trial-level data
@@ -356,6 +356,12 @@ formula = dv ~ 1 + condition +
 - John Bartlett for his [tutorial](https://bartlettje.github.io/dissemination_quarto/quarto_presentations.html#creating-a-quarto-presentation){target='_blank'} on reproducible presentations in R (*this is solid gold*).
 
 - Lisa Debruine for sharing lots of [example presentations](https://github.com/debruine/talks/tree/master){target='_blank'}
+
+**Resources:**
+
+- Unless otherwise specified, icons were used under license from [The Noun Project](https://thenounproject.com/)
+
+- Slides created with [Quarto](https://quarto.org/) and [RevealJS](https://revealjs.com/)
 
 ## And here's my stuff
 
