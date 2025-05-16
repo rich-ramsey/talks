@@ -211,7 +211,7 @@ $$\color{red}{Y_i} = \color{orange}{\beta_0} + \color{green}{\beta_1} \color{blu
 ::: {.column width="70%" .incremental}
 - Go away, get some data and run single level regressions in R.
 - Use different types of data - continuous and categorical predictors etc.
-- _*I bet there are a million tutorials online.*_
+- ***I bet there are a million tutorials online.***
 - **Aim:** understand the basics of single level regression - the rest builds on this core foundation.
 :::
 
@@ -357,11 +357,13 @@ formula = dv ~ 1 + condition +
 
 - Lisa Debruine for sharing lots of [example presentations](https://github.com/debruine/talks/tree/master){target='_blank'}
 
+
 **Resources:**
 
 - Unless otherwise specified, icons were used under license from [The Noun Project](https://thenounproject.com/)
 
 - Slides created with [Quarto](https://quarto.org/) and [RevealJS](https://revealjs.com/)
+
 
 ## And here's my stuff
 
