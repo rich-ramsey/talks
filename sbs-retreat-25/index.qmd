@@ -17,6 +17,11 @@ format:
       transition-speed: fast
       logo: ../images/cbs_hex.png
       css: ../style.css
+      pointer: 
+        pointerSize: 18
+        color: "#FF0000"  # Bright red
+revealjs-plugins:
+  - pointer
 editor: source
 editor_options: 
   chunk_output_type: console
@@ -29,18 +34,51 @@ library(citr)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Talk overview
+## Aim ##
 
-1.  Context.
+:::: {.columns}
+::: {.column width="60%"}
+
+<br>
+
+- **Aim:** Provide the lab with a general context for thinking about data analysis and statistics.
+
+- **Disclaimer:** I'm not a statistician. I'm not a statistician. I'm not a statistician...
+:::
+
+::: {.column width="40%"}
+![](images/confused.png){width=200px}\
+![](images/analysis.png){width=200px}
+:::
+::::
+
+
+## Overview ##
+
+:::: {.columns}
+::: {.column width="30%"}
+
+<br>
+
+1.  Background.
 2.  Caution.
 3.  Regression.
 4.  Summary.
+:::
 
-**Aim:** Provide a relevant context and framework for thinking about data analysis and statistics.
+::: {.column width="70%"}
 
-**Disclaimer:** I'm not a statistician. I'm not a statistician. I'm not a ...
+<br>
 
-# Context
+![](images/plan.png){width=200px}
+![](images/lecture.png){width=200px}
+![](images/discussion.png){width=200px}
+:::
+::::
+
+
+
+# Background
 
 ## Sampling from a larger population
 
@@ -52,11 +90,13 @@ fig-align="center"
 
 <br>
 
--   Cognitive neuroscience / experimental psychology.
+- Cognitive neuroscience / experimental psychology.
 
--   Social perception and cognition.
+- Social perception and cognition.
 
--   I am not a statistician. (Did I say that already?)
+- I am not a statistician. (Did I say that already?)
+
+- More recently: open science, methods and meta-science.
 
 ## My background
 
@@ -94,19 +134,19 @@ A quote from Andrew Gelman [(Gelman, 2024)](https://sites.stat.columbia.edu/gelm
 
 > once the data have been collected, the most important decisions have already been done
 
-## Champagne inference on a beer budget
+## Champagne inference on a beer budget ## {.incremental}
 
 All statistical models are fundamentally limited and need to be framed within the wider scientific context [@mcelreath2020], such as:
 
-::::: columns
-::: {.column width="50%"}
+::::: columns 
+::: {.column width="50%" .incremental}
 -   The importance of theory
 -   Open data and materials
 -   Pre-registration
 -   Meta-analyses
 :::
 
-::: {.column width="50%"}
+::: {.column width="50%" .incremental}
 -   Computational modelling
 -   Data science
 -   Experimental design
@@ -114,33 +154,39 @@ All statistical models are fundamentally limited and need to be framed within th
 :::
 :::::
 
-## Champagne inference on a beer budget
+## Champagne inference on a beer budget ## 
 
 Before we make inferences and draw conclusions, we should spend more time [@scheel2021]:
 
+::: {.incremental}
 -   Forming concepts.
 -   Developing valid measures.
 -   Identifying boundary conditions and auxillary assumptions.
 -   And so on...
+:::
 
 ## Caution (!) is required
 
 <br>
 
+::: {.incremental}
 -   Statistical inference is not magical.
 -   Inferences rest on a lot of assumptions and data quality.
 -   Inferences are likely to be fragile/tentative/suggestive.
 -   So, be cautious!
 -   And try to create research designs that do not rely too heavily on one particular part of your inferential model.
+:::
 
 ## Towards statistical *thinking*
 
 <br>
 
+::: {.incremental}
 -   Develop a statistical philosophy rather than rely on historical statistical rituals [@gigerenzer2018].
 -   There are many different approaches to the same question.
 -   Have a sense of how your approach fits into the mix of options, in terms of pros and cons.
 -   Be able to defend and justify your choices explicitly.
+:::
 
 # Regression
 
@@ -151,7 +197,7 @@ Before we make inferences and draw conclusions, we should spend more time [@sche
 $$\color{red}{Y_i} = \color{orange}{\beta_0} + \color{green}{\beta_1} \color{blue}{X_i} + \color{violet}{\varepsilon_i}$$
 :::
 
-::: {.g-col-12 style="font-size: 0.7em;"}
+::: {.g-col-12 style="font-size: 0.7em;" .incremental}
 - $\color{red}{Y_i}$: The outcome/response variable for observation $i$
 - $\color{orange}{\beta_0}$: The intercept (value of $Y$ when $X = 0$)
 - $\color{green}{\beta_1}$: The slope (change in $Y$ for one unit increase in $X$)
@@ -167,24 +213,26 @@ $$\color{red}{Y_i} = \color{orange}{\beta_0} + \color{green}{\beta_1} \color{blu
 
 ## Homework
 
+::: {.incremental}
 - Go away, get some data and run single level regressions in R.
 - Use different types of data - continuous and categorical predictors etc.
 - I bet there are a million tutorials online.
 - **Aim:** understand the basics of single level regression - the rest builds on this core foundation.
+:::
 
 ## Multi-level linear regression
 
 ::: {.grid}
-::: {.g-col-12 style="font-size: 1.5em;"}
+::: {.g-col-12 style="font-size: 1.4em;"}
 $$\color{red}{Y_{ij}} = (\color{orange}{\gamma_{00}} + \color{yellow}{u_{0j}}) + (\color{green}{\gamma_{10}} + \color{cyan}{u_{1j}})\color{blue}{X_{ij}} + \color{violet}{\varepsilon_{ij}}$$
 :::
 
-::: {.g-col-12 style="font-size: 0.7em;"}
+::: {.g-col-12 style="font-size: 0.7em;" .incremental}
 - $\color{red}{Y_{ij}}$: The outcome variable for observation $i$ in group $j$
 - $\color{orange}{\gamma_{00}}$: The fixed effect intercept (population average)
-- $\color{yellow}{u_{0j}}$: The random intercept for group $j$
+- $\color{yellow}{u_{0j}}$: The random/varying intercept for group $j$
 - $\color{green}{\gamma_{10}}$: The fixed effect slope (population average)
-- $\color{cyan}{u_{1j}}$: The random slope for group $j$
+- $\color{cyan}{u_{1j}}$: The random/varying slope for group $j$
 - $\color{blue}{X_{ij}}$: The predictor variable for observation $i$ in group $j$
 - $\color{violet}{\varepsilon_{ij}}$: The error term for observation $i$ in group $j$
 :::
@@ -194,10 +242,13 @@ $$\color{red}{Y_{ij}} = (\color{orange}{\gamma_{00}} + \color{yellow}{u_{0j}}) +
 
 <br>
 
+::: {.incremental}
 -   One general and versatile way to approach data analysis.
 -   It avoids picking the "right" statistical test.
 -   There is an active community of users and lots of resources.
--   It is suitable for most data in psychology and human neuroscience.
+-   It is suitable for most data in psychology and human neuroscience, which typically has a nested (multi-level) structure e.g., sub-groups within a bigger group.
+-   Take advantage of partial pooling / shrinkage.
+:::
 
 ## Summary vs trial-level data
 
@@ -231,29 +282,25 @@ $$\color{red}{Y_{ij}} = (\color{orange}{\gamma_{00}} + \color{yellow}{u_{0j}}) +
 
 ![](images/pooling_plot.png){fig-align="center"}
 
-## Fixed and varying effects
+## Fixed and varying effects 
 
 <br>
 
-```{r model-formula-fixed, echo=TRUE}
-## specify the model formula with only fixed or population-level terms
+```{r model-evolution, echo=TRUE, eval=FALSE}
+#| code-line-numbers: "1-2|5-7|10-12"
+
+# specify the model formula with only fixed or population-level terms
 formula = dv ~ 1 + condition 
-```
 
-<br>
 
-```{r model-formula-vary-intercepts, echo=TRUE}
-## and now add varying intercepts per participant
-formula = dv ~ 1 + condition +
-          (1 | participant)
-```
+# and now add varying intercepts per participant
+formula = dv ~ 1 + condition + 
+  (1 | participant)
 
-<br>
 
-```{r model-formula-vary-slopes, echo=TRUE}
-## and now add varying intercepts and slopes per participant
-formula = dv ~ 1 + condition +
-          (1 + condition | participant)
+# and now add varying intercepts and slopes per participant
+formula = dv ~ 1 + condition + 
+  (1 + condition | participant)
 ```
 
 ## Estimation approaches - basics
