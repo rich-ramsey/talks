@@ -19,7 +19,7 @@ format:
       css: ../style.css
       pointer: 
         pointerSize: 18
-        color: "#FF0000"  # Bright red
+        color: "#32cd32" # green pointer
 revealjs-plugins:
   - pointer
 editor: source
