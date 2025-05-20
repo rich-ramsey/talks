@@ -1,0 +1,432 @@
+---
+title: "Methods and Meta-science"
+subtitle: "[rich-ramsey.github.io/talks/sbs-retreat-24/](https://rich-ramsey.github.io/talks/sbs-retreat-24/){target='_blank'}"
+author: "Richard Ramsey  \n[www.rich-ramsey.com](https://rich-ramsey.com){target='_blank' style='color:#2a76dd; font-size:22pt;'}"
+venue: "SBS Lab Retreat 2024"
+location: "Castasegna, Switzerland"
+metadata:
+  presentation-date: "2024-08-17"  # Custom metadata field
+format:
+  revealjs:
+      slide-number: true
+      embed-resources: true
+      transition: none
+      transition-speed: fast
+      logo: ../images/sbs_watermelon.png
+      css: ../style.css
+      pointer: 
+        pointerSize: 18
+        color: "#32cd32" # green pointer
+revealjs-plugins:
+  - pointer
+editor: source
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r load-packages, include = FALSE}
+library(papaja)
+library(citr)
+
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Roadmap ##
+
+1.  Problems.
+2.  Data science. 
+3.  Planning.
+4.  Modelling.
+
+# Problems #
+
+## Problems ##
+
+::: {style="text-align: center;"}
+![Open Science Collaboration, 2015](images/osc_p_effect_size.png){}
+:::
+
+## Problems ##
+
+:::: {.columns}
+::: {.column width="40%"}
+![Open Science Collaboration, 2015](images/osc_table.png){}
+:::
+::: {.column width="60%"}
+![](images/power_failure.png){height=150px}\
+![](images/cancer_biology.png){height=150px}\
+![](images/bwa.png){height=150px}\
+![](images/nrn_iiv_brain.png){height=150px}
+:::
+::::
+
+## Problems ##
+
+:::: {.columns}
+::: {.column width="40%"}
+1. Bias
+2. Hidden Flexibility
+3. Unreliability
+4. Data Hoarding
+5. Corruptibility
+6. Internment
+7. Bean Counting
+:::
+::: {.column width="60%"}
+![](images/deadly_sins.png){height=600px}
+:::
+::::
+
+## Problems ##
+
+::: {style="text-align: center;"}
+![Munafò et al., 2017](images/wheel_of_death.png){height=400px}
+:::
+
+## Problems ##
+
+- An example: publication bias (or the “file-drawer effect”).
+- Incentives for significant effects can create so-called zombie research
+
+:::: {.columns}
+::: {.column width="50%"}
+![](images/sim1.png){}
+:::
+::: {.column width="50%"}
+![](images/sim2.png){}
+:::
+::::
+
+
+## Problems ##
+
+::: {style="text-align: center;"}
+![](images/zombie.png){}
+:::
+
+## Roadmap ##
+
+1.  Problems.
+2.  Data science. 
+3.  Planning.
+4.  Modelling.
+
+# Data science #
+
+## Data science ##
+
+:::: {.columns}
+::: {.column width="50%"}
+![](images/vaccine.png){}
+:::
+::: {.column width="50%"}
+![](images/zombie.png){height=400px}
+:::
+::::
+
+## Data science ##
+
+:::: {.columns}
+::: {.column width="50%"}
+![](images/cake.png){}
+:::
+::: {.column width="50%"}
+![https://ajgoldstein.com/2017/11/12/deconstructing-data-science/](images/data_science.png){}
+:::
+::::
+
+## Data science ##
+
+:::: {.columns}
+::: {.column width="50%"}
+
+<br>
+
+- R for Data Science
+- A free, online book: [https://r4ds.hadley.nz/](https://r4ds.hadley.nz/)
+- Or buy the hard copy
+- This should be your data science bible
+:::
+::: {.column width="50%"}
+![](images/r4ds.png){}
+:::
+::::
+
+## Data science ##
+
+::: {style="text-align: center;"}
+![](images/ds_workflow.png){}
+:::
+
+## Data science ##
+
+::: {style="text-align: center;"}
+![](images/osf.png){}
+:::
+
+## Data science ##
+
+:::: {.columns}
+::: {.column width="60%"}
+![](images/excel.png){}
+:::
+::: {.column width="40%"}
+- No Excel sheets !
+- Instead:
+- A raw data file (i.e., trial level data with no exclusions).
+- An analysis script (or set of scripts)
+:::
+::::
+
+## Roadmap ##
+
+1.  Problems.
+2.  Data science. 
+3.  Planning.
+4.  Modelling.
+
+# Planning #
+
+## Planning ##
+
+:::: {.columns}
+::: {.column width="40%"}
+![](images/planning.png){}
+:::
+::: {.column width="60%" style="font-size: 0.8em;"}
+- What are the scientifc goals of the research project?
+- Are there practical or more applied goals?
+- What kind of data?
+- What kind of research design?
+- How much data per participant per condition?
+- How many participants?
+- How many experiments?
+- What kind of data analysis will be performed?
+- What kind of resources are available?
+:::
+::::
+
+## Planning ##
+
+Before testing hypotheses, researchers should spend more time [(Scheel, 2021)](https://journals.sagepub.com/doi/10.1177/1745691620966795):
+
+- forming concepts
+- developing valid measures
+- establishing the causal relationships between concepts 
+- identify boundary conditions and auxiliary assumptions
+
+
+## Planning ##
+
+::: {style="text-align: center;"}
+![](images/lakens_table.png){}
+:::
+
+## Planning ##
+
+::: {style="text-align: center;"}
+![](images/planning_eg_1.png){}
+:::
+
+## Planning ##
+
+::: {style="text-align: center;"}
+![](images/planning_eg_2.png){}
+:::
+
+## Planning ##
+
+:::: {.columns}
+::: {.column width="40%"}
+![](images/free_lunch.png){}
+:::
+::: {.column width="60%" .smaller}
+- Effect sizes (Funder & Ozer, 2019)
+- Respect your chosen approach (strengths and weaknesses) before AND after you run your study
+- Pre-registration 
+- Avoid the Cult of Single Isolated Study (Nelder, 1986. Tong, 2019)
+:::
+::::
+
+## Planning ##
+
+:::: {.columns}
+::: {.column width="50%"}
+![](images/g_power.png){}
+:::
+::: {.column width="50%"}
+![](images/data_sim.png){}
+:::
+::::
+
+
+## Planning ##
+
+<br>
+
+::: {style="text-align: center;"}
+![](images/reg_report.png){}
+:::
+
+## Planning ##
+
+<br>
+
+:::: {.columns}
+::: {.column width="50%"}
+- Pre-registration is your friend.
+- It helps you to push back against reviewers in a principled way
+- "It is a plan, not a prison"
+([DeHaven, 2017](https://www.cos.io/blog/preregistration-plan-not-prison)). 
+:::
+::: {.column width="50%"}
+![](images/peer_review_chaos.png){}
+:::
+::::
+
+## Roadmap ##
+
+1.  Problems.
+2.  Data science. 
+3.  Planning.
+4.  Modelling.
+
+# Modelling #
+
+## Modelling ##
+
+![Image from: https://danawanzer.github.io/stats-with-jamovi/](images/sampling.png){
+fig-align="center"
+}
+
+## Modelling ##
+
+![https://lindeloev.github.io/tests-as-linear/](images/tests_as_models.png){fig-align="center"}
+
+## Modelling ##
+
+:::: columns
+::: {.column width="50%"}
+![summary / aggregated data](images/agg_data.png){fig.align="center" height="500px"}
+:::
+::: {.column width="50%"}
+![trial-level data](images/trial_data.png){fig.align="center" height="500px"}
+:::
+::::
+
+## Modelling ##
+
+:::: columns
+::: {.column width="30%"}
+- Multi-level modelling takes advantage of partial pooling or shrinkage
+:::
+::: {.column width="70%"}
+![https://blog.conductrics.com/prediction-pooling-and-shrinkage/](images/shrinkage.png){fig.align="center" height="500px"}
+:::
+::::
+
+## Modelling ##
+
+:::: columns
+::: {.column width="30%"}
+- Parameters in models rather than p-values/Bayes factors
+:::
+::: {.column width="70%"}
+![](images/coef_plot.png){fig.align="center" height="500px"}
+:::
+::::
+
+## Modelling ##
+
+:::: columns
+::: {.column width="33.3%"}
+- One general, powerful and flexible approach, rather than a separate “test” for each design 
+:::
+
+::: {.column width="33.3%"}
+![](images/mcelreath_book.png){fig-align="center" height="25%"}
+:::
+
+::: {.column width="33.3%"}
+![](images/winter_book.png){fig-align="center" height="25%"}
+:::
+::::
+
+# Final thoughts #
+
+## Final thoughts ##
+
+:::: columns
+::: {.column width="70%"}
+![https://www.eaton.com/gb/en-gb/markets/machine-building/service-and-support-machine-building-moem-service-eaton/blogs/Two-hand-control-for-machinery-blog-functional-safety.html](images/safety.png){fig.align="center" height="500px"}
+:::
+
+::: {.column width="30%"}
+- Data science, methods reform and meta-science approaches can help provide protection against the scientific environment
+:::
+::::
+
+## Final thoughts ##
+
+:::: columns
+::: {.column width="50%"}
+![](images/hannibal.png){fig.align="center"}
+:::
+
+::: {.column width="50%" style="font-size: 0.8em;"}
+- The first principle is that you must not fool yourself - and you are the easiest person to fool (Richard Feynman, 1974).
+- Each belt, shackle and guard may represent:
+  - Pre-registration.
+  - Statistical power and sample size.
+  - Replication.
+  - Meta-analysis.
+  - Open data, materials and code.
+  - Pre-prints.
+  - Make more modest claims.
+:::
+::::
+
+
+## Final thoughts ##
+
+:::: columns
+::: {.column width="50%"}
+- All of this is overwhelming
+
+![](images/brain_explosion.png){fig.align="center" height="400px"}
+:::
+
+::: {.column width="50%"}
+- Changing behaviour is hard
+
+![](images/weight.png){fig.align="center" height="400px"}
+:::
+::::
+
+## Final thoughts ##
+
+:::: columns
+::: {.column width="50%"}
+>The method of science, as stodgy and grumpy as it may seem, is far more important than the findings of science.
+
+Carl Sagan, 1995
+:::
+
+::: {.column width="50%"}
+![https://www.nature.com/articles/d41586-023-03240-x. Credit: Science History Images/Alamy](images/carl_sagan.png){fig.align="center"}
+:::
+::::
+
+## Some relevant resources ##
+
+- [Resources](https://rich-ramsey.com/resources/)
+- [Meta science blog post](https://rich-ramsey.com/posts/2023-05-16_meta_science/)
+- [Bayesian workflow blog post](https://rich-ramsey.com/posts/2023-07-14_data_analysis_workflow/)
+
+**GitHub tutorials:**
+
+- <https://github.com/rich-ramsey/sim_demo>
+- <https://github.com/rich-ramsey/reproducible_workflow>
+- <https://github.com/rich-ramsey/psychopy_tutorial>
+- <https://github.com/rich-ramsey/small_n_sims>
+- <https://github.com/rich-ramsey/Bayesian_workflow>
