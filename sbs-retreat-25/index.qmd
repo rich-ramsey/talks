@@ -372,13 +372,11 @@ formula = dv ~ 1 + condition +
 
 - Lisa Debruine for sharing lots of [example presentations](https://github.com/debruine/talks/tree/master){target='_blank'}
 
-
 **Resources:**
 
 - Unless otherwise specified, icons were used under license from [The Noun Project](https://thenounproject.com/)
 
 - Slides created with [Quarto](https://quarto.org/) and [RevealJS](https://revealjs.com/)
-
 
 ## And here's my stuff
 
