@@ -65,7 +65,6 @@ I'm not a statistician. I'm not a statistician. I'm not a statistician...
 
 <br>
 
-<!-- ![](images/plan.png){width=200px} -->
 ![](images/lecture.png){width=200px}
 ![](images/discussion.png){width=200px}
 :::
@@ -104,18 +103,20 @@ fig-align="center"
 
 - Then you interpret the p-value. 
 
-- Job done. Easy, right?
+- Job done. 
+
+- Easy, right?
 :::
 
 ## My background
 
-**In the wake of the reproducibility crisis, I felt the need to become more statistically literate.**
+**In the wake of the reproducibility crisis, I felt the need to become more statistically literate.**\
+**Enter:**
 
 ::: {.incremental}
-- Enter:
-    -   Richard McElreath's excellent textbook [@mcelreath2020] 
-    -   Solomon Kurz's brilliant translation into `tidyverse` principles [@kurzStatisticalRethinkingSecondEd2023].
-    -   Various papers and books by [Andrew Gelman](https://sites.stat.columbia.edu/gelman/){target='_blank'}.
+- Richard McElreath's excellent textbook [@mcelreath2020] 
+- Solomon Kurz's brilliant translation into `tidyverse` principles [@kurzStatisticalRethinkingSecondEd2023].
+- Various papers and books by [Andrew Gelman](https://sites.stat.columbia.edu/gelman/){target='_blank'}.
 :::
 
 # Caution #
@@ -132,7 +133,7 @@ A quote from Andrew Gelman [(Gelman, 2024)](https://sites.stat.columbia.edu/gelm
 
 All statistical models are fundamentally limited and need to be framed within the wider scientific context [@mcelreath2020], such as:
 
-::::: columns 
+:::: {.columns}
 ::: {.column width="50%" .incremental}
 -   The importance of theory
 -   Open data and materials
@@ -146,7 +147,7 @@ All statistical models are fundamentally limited and need to be framed within th
 -   Experimental design
 -   And many more besides
 :::
-:::::
+::::
 
 ## Champagne inference on a beer budget ## 
 
@@ -158,6 +159,14 @@ Before we make inferences and draw conclusions, we should spend more time [@sche
 -   Identifying boundary conditions and auxillary assumptions.
 -   And so on...
 :::
+
+## Champagne inference on a beer budget ##
+
+**Measurement schmeasurement**
+
+>We demonstrate that psychology is plagued by a measurement  schmeasurement attitude: questionable measurement practices are common, hide a stunning source of researcher degrees of  freedom, pose a serious threat to cumulative psychological science, but are largely ignored.
+
+[@flake2020]
 
 ## Caution (!) is required
 
@@ -207,7 +216,7 @@ $$\color{red}{Y_i} = \color{orange}{\beta_0} + \color{green}{\beta_1} \color{blu
 
 ## Homework
 
-::::: columns 
+:::: {.columns}
 ::: {.column width="70%" .incremental}
 - Go away, get some data and run single level regressions in R.
 - Use different types of data - continuous and categorical predictors etc.
@@ -218,7 +227,7 @@ $$\color{red}{Y_i} = \color{orange}{\beta_0} + \color{green}{\beta_1} \color{blu
 ::: {.column width="30%"}
 ![](images/homework.png){width=200px}
 :::
-:::::
+::::
 
 ## Multi-level linear regression
 
@@ -252,35 +261,41 @@ $$\color{red}{Y_{ij}} = (\color{orange}{\gamma_{00}} + \color{yellow}{u_{0j}}) +
 
 ## Summary vs trial-level data
 
-::::: columns
+:::: {.columns}
 ::: {.column width="50%"}
 ![summary / aggregated data](images/agg_data.png){fig.align="center" height="500px"}
 :::
 
-::: {.column width="50%"}
+::: {.column width="50%" .fragment}
 ![trial-level data](images/trial_data.png){fig.align="center" height="500px"}
 :::
-:::::
+::::
 
 ## Partial pooling or shrinkage
 
 ### let's build in an intuition
 
-::::: columns
+:::: {.columns}
 ::: {.column width="50%"}
 ![](images/family_height.png){fig-align="center"}
 :::
 
-::: {.column width="50%"}
+::: {.column width="50%" .fragment}
 ![](images/population.png){fig-align="center"}
 :::
-:::::
+::::
 
 ## Partial pooling or shrinkage
 
 ### let's plot it
 
-![](images/pooling_plot.png){fig-align="center"}
+![](images/shrinkage_2_pid.png){fig-align="center"}
+
+## Partial pooling or shrinkage
+
+### let's plot it
+
+![](images/shrinkage_20_pid.png){fig-align="center"}
 
 ## Fixed and varying effects 
 
@@ -313,7 +328,7 @@ formula = dv ~ 1 + condition +
 
 ## Estimation approaches - wider reading
 
-:::::: columns
+:::: {.columns}
 ::: {.column width="33.3%"}
 ![](images/winter_book.png){fig-align="center" height="25%"}
 :::
@@ -325,7 +340,7 @@ formula = dv ~ 1 + condition +
 ::: {.column width="33.3%"}
 ![](images/kruschke_book.png){fig-align="center" height="25%"}
 :::
-::::::
+::::
 
 # Summary
 
@@ -333,7 +348,7 @@ formula = dv ~ 1 + condition +
 
 <br>
 
-::::: columns
+:::: {.columns}
 ::: {.column width="50%"}
 -   Statistical reform is important.
 
@@ -345,7 +360,7 @@ formula = dv ~ 1 + condition +
 ::: {.column width="50%"}
 ![https://vocal.media/beat/reinventing-david-bowie](images/david_bowie.jpg){fig-align="center"}
 :::
-:::::
+::::
 
 ## Thanks for your attention
 
@@ -379,6 +394,6 @@ formula = dv ~ 1 + condition +
 
 ## References
 
-::: {#refs style="font-size: 0.9em;"}
+::: {#refs style="font-size: 0.8em;"}
 :::
 
