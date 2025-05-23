@@ -30,8 +30,19 @@ editor_options:
 ```{r load-packages, include = FALSE}
 library(papaja)
 library(citr)
+library(tidybayes)
+library(tidyverse)
 
 knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r theme-settings, include = FALSE}
+theme_set(
+  theme_bw() +
+    theme(text = element_text(size = 22, face = "bold"), 
+          title = element_text(size = 22, face = "bold"),
+          legend.position = "none")
+)
 ```
 
 ## Aim ##
@@ -325,6 +336,41 @@ formula = dv ~ 1 + condition +
 ## Estimation approaches - parameters
 
 ![](images/coef_plot.png){fig-align="left"}
+
+## Estimation approaches - parameters 
+
+::: {.figure-container}
+::: {.img-full}
+```{r tidy-bayes}
+df <- data.frame(
+  group = c("a", "b", "c", "d"),
+  value = rnorm(
+    3000,
+    mean = c(-15, 0, 5, 15),
+    sd = c(5, 5, 5, 5)
+  )
+)
+
+ggplot(df) +
+  aes(y = group,
+      x = value,
+      fill = stat(x < 0)
+  ) +
+  stat_halfeye() +
+  labs(y = "condition",
+       x = "reaction time (ms)",
+       caption = "error bars show 66% and 95% quantiles") +
+  scale_fill_manual(values = c("gray85", "skyblue")) +
+  scale_x_continuous(limits = c(-30, 30),
+                     breaks = seq(-30, 30, 10)) +
+  geom_vline(xintercept = 0, linetype = "dashed")
+```
+:::
+:::
+
+::: {.citation-footer}
+[Adapted from: <https://mjskay.github.io/tidybayes/>{target='_blank'}]
+:::
 
 ## Estimation approaches - wider reading
 
