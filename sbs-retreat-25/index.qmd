@@ -202,7 +202,7 @@ Before we make inferences and draw conclusions, we should spend more time [@sche
 -   Be able to defend and justify your choices explicitly.
 :::
 
-# Regression
+  # Regression
 
 ## Single-level linear regression
 
@@ -422,7 +422,7 @@ ggplot(df) +
 
 - Unless otherwise specified, icons were used under license from [The Noun Project](https://thenounproject.com/)
 
-- Slides created with [Quarto](https://quarto.org/) and [RevealJS](https://revealjs.com/)
+- Slides were created with [Quarto](https://quarto.org/) and [RevealJS](https://revealjs.com/)
 
 ## And here's my stuff
 
