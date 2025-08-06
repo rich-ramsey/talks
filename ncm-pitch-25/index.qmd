@@ -1,0 +1,99 @@
+---
+title: "We should all learn how to create fake data"
+subtitle: "[rich-ramsey.github.io/talks/ncm-pitch-25/](https://rich-ramsey.github.io/talks/ncm-pitch-25/){target='_blank'}"
+author: "Richard Ramsey  \n[www.rich-ramsey.com](https://rich-ramsey.com){target='_blank' style='color:#2a76dd; font-size:22pt;'}"
+venue: "NCM lab meeting 2025"
+location: "Zurich, Switzerland"
+metadata:
+  presentation-date: "2025-08-07"  # Custom metadata field
+#bibliography: references.bib
+nocite: 
+format:
+  revealjs:
+      slide-number: true
+      embed-resources: true
+      transition: none
+      transition-speed: fast
+      logo: ../images/cbs_hex.png
+      css: ../style.css
+      pointer: 
+        pointerSize: 18
+        color: "#32cd32" # green pointer
+revealjs-plugins:
+  - pointer
+editor: source
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+
+knitr::opts_chunk$set(echo = FALSE)
+
+theme_set(
+  theme_bw() +
+    theme(text = element_text(size = 22, face = "bold"), 
+          title = element_text(size = 22, face = "bold"),
+          legend.position = "none")
+)
+```
+
+## Conceptual context ##
+
+:::: {.columns}
+::: {.column width="40%"}
+
+![](images/unbearable_lightness.jpg){width=300px}
+:::
+
+::: {.column width="60%"}
+
+>There is no means of testing which decision is better, because there is no basis for comparison. We live everything as it comes, without warning, like an actor going on cold. And what can life be worth if the first rehearsal for life is life itself? 
+
+Milan Kundera, *The Unbearable Lightness of Being*
+:::
+::::
+
+## How? ##
+
+Use in-built R functions, for example:
+
+```{r sim-data, echo=TRUE}
+rand_norm <- rnorm(n = 1000, mean = 0, sd = 1)
+```
+
+::: {.fragment}
+
+```{r plot-sim-data, echo=FALSE}
+# use in built R functions, for example:
+rand_norm |> 
+  as_tibble() |> 
+  ggplot(aes(x=value)) +
+  geom_histogram(fill="hotpink", colour="black")
+```
+
+:::
+
+## Benefits ##
+
+[Lisa Debruine](debruine.github.io/talks/EMPSEB-fake-it-2023/) outlines these benefits:
+
+1. Develop an understanding of data and statistical concepts.
+2. Plan your pre-registration. 
+3. Estimate power/precision for a future study.
+4. Deal with potential confidentiality issues. 
+5. Create demo data for teaching and tutorials.
+
+
+## Resources ##
+
+- A list of resources that justify the use of fake data from Andrew Gelman [here](https://statmodeling.stat.columbia.edu/2019/03/23/yes-i-really-really-really-like-fake-data-simulation-and-i-cant-stop-talking-about-it/).
+
+- The [faux](https://debruine.github.io/faux/) R package and some [slides](https://debruine.github.io/talks/EMPSEB-fake-it-2023/#/title-slide) by Lisa Debruine.
+
+- Blog posts by Solomon Kurz [here](https://solomonkurz.netlify.app/blog/bayesian-power-analysis-part-i/).
+
+- R code showing demo examples from my lab [here](https://github.com/rich-ramsey/sim_demo).
+
+- A journal [paper](https://journals.sagepub.com/doi/full/10.1177/2515245920965119) on understanding multi-level regression models via data simulation.
