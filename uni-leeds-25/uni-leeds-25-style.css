@@ -1,0 +1,57 @@
+/* NCM Lab 2025 talk - title slide styling */
+/* Working selector for title - make it smaller */
+.reveal .slides section:first-child h1 {
+  font-size: 1.6em !important;  /* Smaller than default */
+}
+
+/* Try different selectors for subtitle/other text */
+.reveal .slides section:first-child p {
+  font-size: 1.2em !important;
+}
+
+.reveal .slides section:first-child .subtitle {
+  font-size: 1.2em !important;
+}
+
+/* Also try targeting all paragraphs in first section */
+.reveal .slides section:first-child p.subtitle,
+.reveal .slides section:first-child p.author,
+.reveal .slides section:first-child p {
+  font-size: 1em !important;
+}
+
+/* Citation footer */
+.image-footer {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;         /* Changed from 'right' to 'left' */
+  font-size: 0.6em;
+  color: #FFFFFF;
+  opacity: 0.8;
+  z-index: 10;
+  text-align: left;   /* Explicitly set text alignment */
+}
+
+/* Research grid styling */
+.research-item {
+  text-align: center;
+}
+
+.research-item a {
+  text-decoration: none;
+  color: #2a76dd;
+  font-size: 0.7em;
+  font-weight: bold;
+  display: block;
+  margin-top: 0.5em;
+}
+
+.research-item a:hover {
+  color: #1a5bb8;
+  text-decoration: underline;
+}
+
+.research-item img {
+  height: 90px;
+  width: 90px;
+}
