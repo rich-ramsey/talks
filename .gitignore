@@ -7,4 +7,4 @@
 /.quarto/
 plots.qmd
 abstract.qmd
-/sandpit/
+**/sandpit/

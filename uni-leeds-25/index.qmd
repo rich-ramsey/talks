@@ -146,7 +146,6 @@ theme_set(
 
 ## Wheel of death
 
-
 ::: {.figure-container}
 ::: {.img-v-large}
 ![](images/wheel_of_death.png)
@@ -157,38 +156,8 @@ theme_set(
 [@munafo2017]
 :::
 
-## Towards a cumulative science
 
-<br>
-
-:::: {.columns}
-::: {.column width="40%"}
->The first principle is that you must not fool yourself - and you are the easiest person to fool
-
-Richard Feynman [-@feynmanCargoCultScience1974]
-:::
-::: {.column width="60%" .fragment}
-::: {style="display: flex; justify-content: space-around; align-items: center; margin-top: 0em; font-size: 0.7em;"}
-::: {style="text-align: center;"}
-![](images/open_padlock.png){width="120px"}  
-**Openness & transparency**
-:::
-::: {style="text-align: center;"}
-![](images/metascience.png){width="120px"} 
-**Principled workflows**
-:::
-
-::: {style="text-align: center;"}
-![](images/data_science.png){width="120px"} 
-**Data science**
-:::
-
-:::
-:::
-
-::::
-
-## Cumulative science ingredients?
+## Towards a cumulative science? 
 
 ::: {.image-container .img-full}
 ![](images/science_wordcloud.png)
@@ -335,18 +304,12 @@ matrix |>
   opt_stylize()
 ```
 
-::: {.fragment .text-small}
+::: {.incremental .text-small}
 - You always assign values to other people (not yourself).
-:::
-
-::: {.fragment .text-small}
-- Select one option (A-M), which corresponds to two values.
+- Select one option (A-M), which corresponds to two values. In this example:
   - M = Maximum joint profit (MJP).
   - A = Ingroup favourtism (for overestimators) (FAV).
-:::
-
-::: {.fragment .text-small}
-- This example matrix measures the "pull" of **FAV** on **MJP**.
+  
 :::
 
 ::: {.citation-footer}
@@ -354,23 +317,6 @@ matrix |>
 :::
 
 ## Tajfel's matrices 
-
-```{r}
-#| label: matrix-reverse-example
-#| include: false
-
-matrix_reverse <- tibble(
-  Response = LETTERS[1:13],
-  "...member 8 of the **overestimators** group" = seq(25,1, -2),
-  "...member 27 of the **underestimators** group" = seq(7,19)
-) |>
-  pivot_longer(-Response, 
-               names_to = "Person", 
-               values_to = "value") |>
-  pivot_wider(names_from = Response, 
-              values_from = value)
-matrix_reverse
-```
 
 ```{r}
 #| label: matrix-tab-repeat
@@ -389,25 +335,13 @@ matrix |>
   opt_stylize()
 ```
 
-::: {.fragment .text-small}
-Comparison matrix:
+::: {.incremental .text-small}
 
-```{r}
-#| label: matrix-tab-reverse
+- This example matrix measures the "pull" of **FAV** on **MJP**.
+  - e.g., selecting **A** would count as a "pull" of 12 positions from **M**.
+- That value is contrasted to responses on a comparison/control matrix.
+- This results in possible values from -12 to +12.
 
-matrix_reverse |> 
-  gt() |>
-  fmt_markdown(columns = everything()) |> 
-  cols_width(
-    Person ~ pct(30)  # Make first column narrower
-  ) |> 
-  tab_options(
-    table.width = pct(100),
-    table.font.size = px(26),
-    column_labels.font.weight = "bold"
-  ) |>
-  opt_stylize()
-```
 :::
 
 ::: {.citation-footer}
@@ -507,7 +441,7 @@ pull_examples |>
 
 <br>
 
-- Ingroup benefit plus outgroup punishment, even in arbitrary or "minimal" conditions.
+- Ingroup benefit and outgroup punishment was evident, even in arbitrary or "minimal" conditions.
 
 ::: {.fragment}
 - Meaningful social categories, such as race, gender, age etc., are not required to discriminate against others.
@@ -519,39 +453,45 @@ pull_examples |>
 
 ## Groups and social identity theory
 
-<br>
-
-> ... explicit references to group membership are logically necessary for operationalizing in these minimal situations the major independent variable—that is, social categorization per se. 
-
-<br>
-
-[@tajfel1979integrative [p. 39]] 
-
-Citation count: 41,343
-
-## Groups and social identity theory
-
-<br>
-
-> This requires not merely that the subjects perceive themselves as similar to or different from others as *individuals*, but that they are members of discrete and discontinuous categories—that is, "groups".
-
-<br>
+> ... explicit references to group membership are logically necessary for operationalizing in these minimal situations the major independent variable—that is, social categorization per se. This requires not merely that the subjects perceive themselves as similar to or different from others as *individuals*, but that they are members of discrete and discontinuous categories—that is, "groups".
 
 [@tajfel1979integrative [p. 39]] [*emphasis in the original*]
 
 Citation count: 41,343
 
+##  Groups and social identity theory
+
+<br>
+
+>It was as if that, just by inserting the word ‘group’ into the experimental instructions, the s’s definition of the situation was radically altered.
+
+<br>
+
+[@billig1973 [p. 48]]
+
+Citation count: 2,538
+
 ## Confound
 
 A similarity or difference ***between individuals*** covaries with group assignment.
 
-
-::: {.image-container .img-full .img-center}
-
 <br>
 
-![](images/confound_h.png)
+:::: {.columns}
+
+::: {.column width="50%"}
+::: {.image-container .img-large .img-center .fragment}
+![](images/confound_h_1.png)
 :::
+:::
+
+::: {.column width="50%"}
+::: {.image-container .img-large .img-center .fragment}
+![](images/confound_h_2.png)
+:::
+:::
+
+::::
 
 ## Conflict signals
 
@@ -614,32 +554,6 @@ conflict |>
 [@deschrijver2020]
 :::
 
-## Billig & Tajfel (1973) 
-
-
-- Social categorisation was a sufficient condition for intergroup discrimination. 
-
-::: {.incremental}
-- Interpersonal dissimilarity alone only led to trending discrimination effects only in the paintings task, and to no discrimination effects in the coin toss version. 
-
-- N=18/19 per cell/group of the design (boys aged 14-16).
-:::
-
-::: {.citation-footer}
-[@billig1973]
-:::
-
-## Billig & Tajfel (1973)
-
-<br>
-
->It was as if that, just by inserting the word ‘group’ into the experimental instructions, the s’s definition of the situation was radically altered.
-
-<br>
-
-[@billig1973 [p. 48]]
-
-Citation count: 2,538
 
 ## Comparing designs
 
@@ -731,32 +645,6 @@ Resources will be allocated in favour of similar (versus dissimilar) individuals
 
 :::
 
-## Regression approach
-
-- Bayesian multi-level regression approach using the R package 'brms'.
-
-- We used a "keep it maximal" approach to varying/random effects [@barr2013].
-
-::: {.fragment}
-
-```{r}
-#| label: model-formula
-#| echo: true
-#| eval: false
-
-## Example model formula for an index coding approach
-## 0 denotes no grand intercept
-## each level of condition has an intercept
-## varying effects by participant
-
-formula = dv ~ 0 + condition + 
-  (0 + condition | participant)
-
-```
-
-::: 
-
-
 ::: {.no-title}
 
 ## Regression parameters: minimal group {.hide-title}
@@ -769,7 +657,7 @@ formula = dv ~ 0 + condition +
 
 :::
 
-## Individual vs group
+## Individual vs group manipulation
 
 <br>
 
@@ -911,7 +799,7 @@ We are ***not*** claiming that group division and/or social identity are unimpor
 ::: {.fragment}
   - **Theoretical:** Core tenets of Social Identity Theory need revision:
   
-      - Other cognitive and neural mechanisms are likely to be at play in social contexts, such as domain-general conflict detection and resolution.
+      - Other cognitive and neural mechanisms are likely to be at play in social contexts, such as the affective consequences of domain-general conflict detection and resolution.
       
 :::
 
@@ -928,11 +816,11 @@ Three things are relevant here:
 :::
 
 ::: {.fragment .text-small}
-2. Conflict tasks are more difficult to conceptualise in terms of implicit groups. e.g., treat trial-by-trial (in)congruence as ingroup vs outgroup. 
+2. It is more difficult to conceptualise conflict tasks in terms of implicit groups. e.g., to consider trial-by-trial (in)congruence as outgroup vs ingroup processing. 
 :::
 
 ::: {.fragment .text-small}
-3. Even if implicit groups could operate in these types of conflict tasks, then it would apply to all conflict tasks ***between individuals*** in cognitive neuroscience.
+3. Social conflict tasks (like the ones used here) have been used for decades without the results being attributed to group-based or identity processes.
 :::
 
 
@@ -1026,38 +914,22 @@ Formal models
 [@hintzman1991; @yarkoni2022]
 :::
 
-
-## Speed-accuracy trade-off 
-
-<br>
-
-- RT and accuracy are measured on incommensurable scales.
-  - What is 50 ms “worth” in terms of accuracy?
-  - This question cannot be resolved on the basis of data.
-- Evidence accumulation models provide a solution.
-
-::: {.citation-footer}
-[@farrell2018; @wagenmakers2007]
-:::
-
 ## Evidence accumulation models 
 
-:::: {.columns}
-::: {.column width="70%" .img-v-large}
-e.g., Linear Ballistic Accumulator model
-![](images/lba_colour.png)
-:::
-
-::: {.column width="30%"}
-
 <br>
 
-Integrate RT and accuracy as a function of model parameters.
+:::: {.columns}
+::: {.column width="35%"}
+Integrate RT and accuracy as a function of model parameters (e.g., Linear Ballistic Accumulator model).
+:::
+
+::: {.column width="65%" .img-v-large .fragment}
+![](images/lba_colour.png)
 :::
 ::::
 
 ::: {.citation-footer}
-[@parker2023; @heathcote2019]
+[@parker2023; @heathcote2019; @ratcliff2016]
 :::
 
 ## Mapping psychological constructs
@@ -1106,44 +978,6 @@ lba_params |>
 
 ::: {.citation-footer}
 [@myers2022]
-:::
-
-## Example
-
-<br>
-<br>
-
-```{r}
-#| label: speed-acc-data
-#| include: false
-
-speed_acc <- tribble(
-  ~Participant, ~RT, ~Accuracy, ~v, ~b, ~t0,
-  "Amy", 422, .88, .25, .08, 300,
-  "Peter", 467, .95, .25, .12, 250,
-  "George", 517, .95, .25, .12, 300,
-)
-speed_acc
-```
-
-```{r}
-#| label: speed-acc-table
-
-speed_acc |> 
-  gt() |>
-  cols_label(
-    t0 = html("t<sub>0</sub>")
-  ) |> 
-  tab_options(
-    table.width = pct(70),
-    table.font.size = px(26),
-    column_labels.font.weight = "bold"
-  ) |> 
-  opt_stylize()
-```
-
-::: {.citation-footer}
-[@farrell2018; @wagenmakers2007]
 :::
 
 ## Recent projects {.smaller}
