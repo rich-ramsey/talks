@@ -50,8 +50,6 @@ theme_set(
 
 ## Big picture research interests {background-image="images/cards.png" background-size="cover"}
 
-<!-- ![Le Tricheur à l’as de carreau by Georges de la Tour (c. 1635)](images/cards.png) -->
-
 ::: {.image-footer}
 [Le Tricheur à l’as de carreau by Georges de la Tour (c. 1635)]
 :::
@@ -203,8 +201,8 @@ Richard Feynman [-@feynmanCargoCultScience1974]
 # New projects
 
 - Social: Discrimination and group biases.
-- Cognitive: Event history analysis. 
-- Computational: Evidence accumulation models. 
+- [Cognitive: Event history analysis.]{.fragment .semi-fade-out fragment-index=1}
+- [Computational: Evidence accumulation models.]{.fragment .semi-fade-out fragment-index=1} 
 
 ## Discrimination and group biases 
 
@@ -282,7 +280,7 @@ discrim <- tribble(
   "Parity", "P", "Equal division between ingroup and outgroup",
   "Maximum joint profit", "MJP", "Maximise points to the others in total",
   "Maximum ingroup profit", "MIP", "Maximise points to ingroup members in absolute terms",
-  "Maximum differentiation", "MD", "Maximise the difference between ingroup and outgroup members",
+  "Maximum differentiation", "MD", "Maximise the ingroup > outgroup difference",
   "Favouritism", "FAV", "Combination of MD and MIP"
 )
 discrim
@@ -318,8 +316,6 @@ matrix <- tibble(
   pivot_wider(names_from = Response, 
               values_from = value)
 matrix
-
-
 ```
 
 ```{r}
@@ -350,12 +346,124 @@ matrix |>
 :::
 
 ::: {.fragment .text-small}
-- This matrix measures the "pull" of **FAV** on **MJP**.
+- This example matrix measures the "pull" of **FAV** on **MJP**.
 :::
 
 ::: {.citation-footer}
 [@bourhis1994]
 :::
+
+## Tajfel's matrices 
+
+```{r}
+#| label: matrix-reverse-example
+#| include: false
+
+matrix_reverse <- tibble(
+  Response = LETTERS[1:13],
+  "...member 8 of the **overestimators** group" = seq(25,1, -2),
+  "...member 27 of the **underestimators** group" = seq(7,19)
+) |>
+  pivot_longer(-Response, 
+               names_to = "Person", 
+               values_to = "value") |>
+  pivot_wider(names_from = Response, 
+              values_from = value)
+matrix_reverse
+```
+
+```{r}
+#| label: matrix-tab-repeat
+
+matrix |> 
+  gt() |>
+  fmt_markdown(columns = everything()) |> 
+  cols_width(
+    Person ~ pct(30)  # Make first column narrower
+  ) |> 
+  tab_options(
+    table.width = pct(100),
+    table.font.size = px(26),
+    column_labels.font.weight = "bold"
+  ) |>
+  opt_stylize()
+```
+
+::: {.fragment .text-small}
+Comparison matrix:
+
+```{r}
+#| label: matrix-tab-reverse
+
+matrix_reverse |> 
+  gt() |>
+  fmt_markdown(columns = everything()) |> 
+  cols_width(
+    Person ~ pct(30)  # Make first column narrower
+  ) |> 
+  tab_options(
+    table.width = pct(100),
+    table.font.size = px(26),
+    column_labels.font.weight = "bold"
+  ) |>
+  opt_stylize()
+```
+:::
+
+::: {.citation-footer}
+[@bourhis1994]
+:::
+
+## Pull scores
+
+```{r}
+#| label: pull-score-examples
+#| include: false
+
+pull_examples <- tribble(
+  ~Discrimination, ~Pull, ~Intensity,
+  "Outgroup", 4, "Low",
+  "Outgroup", 8, "Medium", 
+  "Outgroup", 12, "High",
+  "None", 0, "None",
+  "Ingroup", -4, "Low",
+  "Ingroup", -8, "Medium",
+  "Ingroup", -12, "High"
+) |>
+  mutate(
+    Discrimination = factor(Discrimination,
+                           levels = c("Outgroup", "None", "Ingroup")),
+    Intensity = factor(Intensity,
+                      levels = c("High", "Medium", "Low", "None"))
+  )
+pull_examples
+```
+
+```{r}
+#| label: pull-examples-plot
+#| fig-width: 5
+#| fig-height: 6
+#| fig-align: center
+
+pull_examples |> 
+  ggplot(aes(x = "", y = Pull, 
+             color = Discrimination, alpha = Intensity)) +
+  geom_point(size = 6) +
+  scale_colour_brewer(palette = "Dark2", name = "Discrimination") +
+  scale_alpha_manual(values = c("High" = 1.0, "Medium" = 0.7, "Low" = 0.4, "None" = 1.0),
+                     guide = "none") +
+  scale_y_continuous(limits = c(-13, 13), breaks = seq(-12, 12, 4)) +
+  theme(axis.text.x = element_blank(),
+        axis.title.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        legend.position = c(1.1, 0.53),
+        legend.justification = c(0, 0.5),
+        legend.key.height = unit(1.2, "cm"),
+        plot.margin = margin(5, 60, 5, 5, "mm")) +
+  coord_cartesian(clip = "off")
+```
 
 ## Minimal group tasks
 
@@ -389,7 +497,7 @@ matrix |>
 
 ## Minimal group findings {.no-title}
 
-![](images/schmidt_matrix_data.png)
+![](images/schmidt_minimal_rain.png)
 
 ::: {.citation-footer}
 [@schmidt2023]
@@ -401,9 +509,13 @@ matrix |>
 
 - Ingroup benefit plus outgroup punishment, even in arbitrary or "minimal" conditions.
 
-- No need for meaningful social categories, such as race, gender, class etc., in order to discriminate against others.
+::: {.fragment}
+- Meaningful social categories, such as race, gender, age etc., are not required to discriminate against others.
+:::
 
-- A foundation of Social Identity Theory [@tajfel1979integrative].
+::: {.fragment}
+- It formed a foundation of Social Identity Theory [@tajfel1979integrative].
+:::
 
 ## Groups and social identity theory
 
@@ -445,7 +557,36 @@ A similarity or difference ***between individuals*** covaries with group assignm
 
 - Why might a feature similarity or difference between individuals matter?
 
-- Cognitive neuroscience shows that conflict is an aversive stimulus that guides behaviour.
+::: {.fragment}
+- Cognitive neuroscience research shows that conflict in general is an aversive stimulus that guides behaviour.
+
+```{r}
+#| label: conflict-tab-data
+#| include: false
+
+conflict <- tibble(
+  task = c("flanker", "Stroop"),
+  congruent = c("HHHHH", "<span style='color: red;'>RED</span>"),
+  incongruent = c("HHSHH", "<span style='color: green;'>RED</span>")
+)
+
+conflict
+```
+
+```{r}
+#| label: conflict-tab
+
+conflict |>
+  gt() |>
+  fmt_markdown(columns = everything()) |>
+  tab_options(
+    table.width = pct(60),
+    table.font.size = px(26),
+    column_labels.font.weight = "bold"
+  ) |>
+  opt_stylize()
+```
+:::
 
 ::: {.citation-footer}
 [@botvinick2015; @dreisbach2015]
@@ -473,13 +614,16 @@ A similarity or difference ***between individuals*** covaries with group assignm
 [@deschrijver2020]
 :::
 
-## Billig & Tajfel (1973)
+## Billig & Tajfel (1973) 
 
-- Social categorization was a sufficient condition for intergroup discrimination. 
 
+- Social categorisation was a sufficient condition for intergroup discrimination. 
+
+::: {.incremental}
 - Interpersonal dissimilarity alone only led to trending discrimination effects only in the paintings task, and to no discrimination effects in the coin toss version. 
 
-- N=XX.
+- N=18/19 per cell/group of the design (boys aged 14-16).
+:::
 
 ::: {.citation-footer}
 [@billig1973]
@@ -771,11 +915,32 @@ We are ***not*** claiming that group division and/or social identity are unimpor
       
 :::
 
+## Criticism
+
+  >Ok, fine, but groups are "perceived" or "implicitly construed", even when groups a never mentioned.
+
+::: {.fragment}
+Three things are relevant here:
+::: 
+
+::: {.fragment .text-small}
+1. Such an interpretation is in direct opposition to the explicit claims made in Social Identity Theory [-@tajfel1979integrative]. 
+:::
+
+::: {.fragment .text-small}
+2. Conflict tasks are more difficult to conceptualise in terms of implicit groups. e.g., treat trial-by-trial (in)congruence as ingroup vs outgroup. 
+:::
+
+::: {.fragment .text-small}
+3. Even if implicit groups could operate in these types of conflict tasks, then it would apply to all conflict tasks ***between individuals*** in cognitive neuroscience.
+:::
+
+
 # New projects
 
-- Social: Discrimination and group biases.
-- Cognitive: Event history analysis. 
-- Computational: Evidence accumulation models. 
+- [Social: Discrimination and group biases.]{.fragment .semi-fade-out fragment-index=1}
+- Cognitive: Event history analysis.
+- [Computational: Evidence accumulation models.]{.fragment .semi-fade-out fragment-index=1}
 
 ## Mean average performance
 
@@ -808,10 +973,13 @@ We are ***not*** claiming that group division and/or social identity are unimpor
 ## EHA: How and why is it useful?
 
 - You can ask questions about "temporal states" of cognition
-  - e.g., When does a state state start and finish? How does it evolve with increased waiting time? Is it time-locked to other events?
+  - e.g., When does a psychological state start and finish? How does it evolve with increased waiting time? Is it time-locked to other events?
+
+::: {.fragment}
 - Theory
 - Psychophysiology
 - Individual differences
+:::
 
 ::: {.citation-footer}
 [@panis2024]
@@ -819,29 +987,23 @@ We are ***not*** claiming that group division and/or social identity are unimpor
 
 ## EHA: A tutorial
 
-- We have written a tutorial aimed at those interested in cognition and cognitive neuroscience.
+- We have written a tutorial paper aimed at those interested in cognition and cognitive neuroscience. It covers:
 
   - Data wrangling.
   - Multi-level regression modelling (Bayesian & frequentist).
   - Inference.
   - Planning via data simulation. 
 
-- All of the tutorials are available on [GitHub](https://github.com/sven-panis/Tutorial_Event_History_Analysis).
+- All of the materials and tutorials are available on [GitHub](https://github.com/sven-panis/Tutorial_Event_History_Analysis).
 
 ::: {.citation-footer}
 [@panis2024]
 :::
 
-## EHA: Experiments
-
-- Data in progress
-
-- Some examples??
-
 # New projects
 
-- Social: Discrimination and group biases.
-- Cognitive: Event history analysis. 
+- [Social: Discrimination and group biases.]{.fragment .semi-fade-out fragment-index=1}
+- [Cognitive: Event history analysis.]{.fragment .semi-fade-out fragment-index=1}
 - Computational: Evidence accumulation models.
 
 ## A problem in theory?
@@ -861,7 +1023,7 @@ Formal models
 ::::
 
 ::: {.citation-footer}
-[@hintzman1991]
+[@hintzman1991; @yarkoni2022]
 :::
 
 
@@ -869,9 +1031,9 @@ Formal models
 
 <br>
 
-- RT and accuracy are measured on incommensurable scales
-- What is 50 ms “worth” in terms of accuracy?
-- This question cannot be resolved on the basis of data.
+- RT and accuracy are measured on incommensurable scales.
+  - What is 50 ms “worth” in terms of accuracy?
+  - This question cannot be resolved on the basis of data.
 - Evidence accumulation models provide a solution.
 
 ::: {.citation-footer}
@@ -881,8 +1043,9 @@ Formal models
 ## Evidence accumulation models 
 
 :::: {.columns}
-::: {.column width="70%"}
-![](images/lba.png)
+::: {.column width="70%" .img-v-large}
+e.g., Linear Ballistic Accumulator model
+![](images/lba_colour.png)
 :::
 
 ::: {.column width="30%"}
@@ -896,6 +1059,38 @@ Integrate RT and accuracy as a function of model parameters.
 ::: {.citation-footer}
 [@parker2023; @heathcote2019]
 :::
+
+## Mapping psychological constructs
+
+- Model parameters map onto latent psychological constructs.
+
+```{r}
+#| label: lba-params
+#| include: false
+
+lba_params <- tribble(
+  ~Parameter, ~Label, ~Construct,
+  "Start point", "A", "response bias",
+  "Drift rate", "v", "signal-to-noise ratio",
+  "Threshold", "b", "response caution",
+  "Non-decision time", "t<sub>0</sub>", "stimulus encoding and motor response"
+)
+lba_params
+```
+
+```{r}
+#| label: lba-params-table
+
+lba_params |> 
+  gt() |> 
+  fmt_markdown(columns = everything()) |> 
+  tab_options(
+    table.width = pct(80),
+    table.font.size = px(26),
+    column_labels.font.weight = "bold"
+  ) |> 
+  opt_stylize()
+```
 
 ## Intuition
 
@@ -913,17 +1108,9 @@ Integrate RT and accuracy as a function of model parameters.
 [@myers2022]
 :::
 
-## Mapping psychological constructs
-
-- Model parameters map onto latent psychological constructs.
-
-a
-v
-b
-Ter
-
 ## Example
 
+<br>
 <br>
 
 ```{r}
@@ -931,9 +1118,9 @@ Ter
 #| include: false
 
 speed_acc <- tribble(
-  ~Participant, ~RT, ~Accuracy, ~v, ~a, ~Ter,
+  ~Participant, ~RT, ~Accuracy, ~v, ~b, ~t0,
   "Amy", 422, .88, .25, .08, 300,
-  "Rich", 467, .95, .25, .12, 250,
+  "Peter", 467, .95, .25, .12, 250,
   "George", 517, .95, .25, .12, 300,
 )
 speed_acc
@@ -943,7 +1130,10 @@ speed_acc
 #| label: speed-acc-table
 
 speed_acc |> 
-  gt() |> 
+  gt() |>
+  cols_label(
+    t0 = html("t<sub>0</sub>")
+  ) |> 
   tab_options(
     table.width = pct(70),
     table.font.size = px(26),
@@ -956,22 +1146,12 @@ speed_acc |>
 [@farrell2018; @wagenmakers2007]
 :::
 
-## Benefits 
-
-<br>
-
-- Speed-accuracy trade off
-- Latent psychological constructs
-- Validity of parameters
-- Examples: Ageing 
-- Examples: Social cognition  
-
 ## Recent projects {.smaller}
 
-::: {style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2em; text-align: center; padding: 1em;"}
+::: {style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 0.5em; text-align: center; padding: 0.5em;"}
 
 ::: {}
-**Attention cueing via eye gaze and arrows**
+**Attention cueing via eye gaze**
 
 ![](images/eyes.png){style="height: 180px; width: auto; margin: 1em 0;"}
 
@@ -979,7 +1159,7 @@ speed_acc |>
 :::
 
 ::: {}
-**Observational learning of knot tying**
+**Observational learning**
 
 ![](images/observational_learning.png){style="height: 180px; width: auto; margin: 1em 0;"}
 
@@ -995,9 +1175,20 @@ speed_acc |>
 
 :::
 
+::: {}
+**A review paper for social cognition**
+
+![](images/theory.png){style="height: 180px; width: auto; margin: 1em 0;"}
+
+[@parker2023a]
+
+:::
+
 :::
 
 # Summary
+
+![](images/cards.png){style="position: absolute; top: 0px; right: 20px; width: 500px; height: auto;"}
 
 - Past research interests
 - Motivating context
@@ -1019,7 +1210,7 @@ speed_acc |>
 - Kohinoor Darda
 - Dace Apšvalka
 - Kohinoor Darda
-- Raphael Fournier
+- [**Raphaël Fournier**]{.underline}
 
 :::
 
@@ -1028,12 +1219,12 @@ speed_acc |>
 - Paul Downing
 - Emily Cross
 - Rudi Coetzer
-- Eliane Deschrijver
+- [**Eliane Deschrijver**]{.underline}
 - Rob Ward
 - Richard Binney
 - Dave Kaplan
-- Sam Parker
-- Sven Panis
+- [**Sam Parker**]{.underline}
+- [**Sven Panis**]{.underline}
 
 :::
 
