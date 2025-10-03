@@ -789,12 +789,12 @@ More money will be allocated to others on congruent than incongruent trials, in 
 
 ::: {.callout-important .fragment}
 ## Constraints on generality
-We are ***not*** claiming that group division and/or social identity are unimportant.
+We are ***not*** claiming that group division and social identity are unimportant or that differences between individuals can tell the whole story.
 :::
 
 ## Implications
 
-  - **Emprirical:** When studying group bias and discrimination, sameness vs difference between individuals needs separating from the effect of group-based manipulations.
+  - **Empirical:** When studying group bias and discrimination, sameness vs difference between individuals needs separating from the effect of group-based manipulations.
   
 ::: {.fragment}
   - **Theoretical:** Core tenets of Social Identity Theory need revision:
