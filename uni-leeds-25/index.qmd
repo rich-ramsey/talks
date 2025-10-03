@@ -5,7 +5,7 @@ author: "Richard Ramsey  \n[www.rich-ramsey.com](https://rich-ramsey.com){target
 venue: "University of Leeds 2025"
 location: "Leeds, UK"
 metadata:
-  presentation-date: "2025-10-16"  # Custom metadata field
+  presentation-date: "2025-10-09"  # Custom metadata field
 bibliography: references.bib
 nocite: 
 format:
