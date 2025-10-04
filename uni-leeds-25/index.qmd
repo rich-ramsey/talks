@@ -168,20 +168,23 @@ theme_set(
 
 # New projects
 
-**Social: Discrimination and group biases**  
-<div style="font-size: 0.75em; margin-left: 1em; margin-top: 0.5em;">
-[Deschrijver & Ramsey, 2025, PNAS]()[![](https://img.shields.io/badge/Open-Data-blue)](https://osf.io/xxxxx) [![](https://img.shields.io/badge/Open-Materials-green)](https://osf.io/xxxxx) [![](https://img.shields.io/badge/Open-Code-black)](https://github.com/xxx) [![](https://img.shields.io/badge/Pre-Registered-orange)](https://osf.io/xxxxx) 
+**Social: Discrimination and group biases** 
+<div style="font-size: 0.75em; margin-left: 0em; margin-top: 0em;">
+[Deschrijver & Ramsey, 2025, *PNAS*](https://www.pnas.org/doi/10.1073/pnas.2413797122)
+![](https://img.shields.io/badge/Open-Data-blue) ![](https://img.shields.io/badge/Open-Materials-green) ![](https://img.shields.io/badge/Open-Code-black) ![](https://img.shields.io/badge/Pre-Registered-orange)
 </div>
 
-<span class="fragment semi-fade-out" data-fragment-index="1">**Cognitive: Event history analysis**</span>  
-<div class="fragment semi-fade-out" data-fragment-index="1" style="font-size: 0.75em; margin-left: 1em; margin-top: 0.5em;">
-[Panis & Ramsey, 2024, PsyRxiv]() [Tutorial paper]
-[![](https://img.shields.io/badge/Open-Data-blue)](https://osf.io/xxxxx) [![](https://img.shields.io/badge/Open-Materials-green)](https://osf.io/xxxxx) [![](https://img.shields.io/badge/Open-Code-black)](https://github.com/xxx) 
+<span class="fragment semi-fade-out" data-fragment-index="1">
+**Cognitive: Event history analysis**</span>  
+<div class="fragment semi-fade-out" data-fragment-index="1" style="font-size: 0.75em; margin-left: 0em; margin-top: 0em;">
+[Panis & Ramsey, *In revision*](https://osf.io/preprints/psyarxiv/57bh6_v2) [Tutorial paper]
+![](https://img.shields.io/badge/Open-Data-blue) ![](https://img.shields.io/badge/Open-Materials-green) ![](https://img.shields.io/badge/Open-Code-black) 
 </div>
 
-<span class="fragment semi-fade-out" data-fragment-index="1">**Computational: Evidence accumulation models**</span>  
-<div class="fragment semi-fade-out" data-fragment-index="1" style="font-size: 0.75em; margin-left: 1em; margin-top: 0.5em;">
-[Parker & Ramsey, 2023, QJEP]() [Review paper]
+<span class="fragment semi-fade-out" data-fragment-index="1">
+**Computational: Evidence accumulation models**</span>  
+<div class="fragment semi-fade-out" data-fragment-index="1" style="font-size: 0.75em; margin-left: 0em; margin-top: 0em;">
+[Parker & Ramsey, 2023, *QJEP*](https://journals.sagepub.com/doi/10.1177/17470218231176950) [Review paper]
 </div>
 
 ## Discrimination and group biases 
@@ -247,7 +250,7 @@ theme_set(
 <!-- Incremental text in top right -->
 ::: {style="position: absolute; top: 0%; right: 0%; max-width: 50%; background: rgba(255,255,255,0); padding: 1em; border-radius: 8px;"}
 ::: {.incremental .text-small}
-- Assign values to other people (not yourself).
+- Assign values to two other specific people (not yourself).
 - Select one option (two values).
 - Measure so-called "pull" scores.
 :::
@@ -524,11 +527,11 @@ Resources will be allocated in favour of similar (versus dissimilar) individuals
 ::: {style="display: grid; grid-template-columns: auto repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 0.8em; height: 40vh; padding: 1em; position: relative;"}
 
 <!-- Row labels -->
-::: {style="grid-area: 1 / 1; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #666; font-size: 0.9em;"}
+::: {style="grid-area: 1 / 1; display: flex; align-items: center; justify-content: left; font-weight: bold; color: #666; font-size: 0.9em;"}
 **Original design**
 :::
 
-::: {style="grid-area: 2 / 1; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #666; font-size: 0.9em;" .fragment data-fragment-index="1"}
+::: {style="grid-area: 2 / 1; display: flex; align-items: center; justify-content: left; font-weight: bold; color: #666; font-size: 0.9em;" .fragment data-fragment-index="1"}
 **Deschrijver & Ramsey (2025)**
 :::
 
@@ -719,27 +722,64 @@ UK-based Prolific online sample. N=238 per experiment.
 
 ## Interim summary
 
-- Blah??
+- Qualitatively similar minimal group paradigm effects are obtained ***without group assignment***.
 
-- What about a different type of task?
+::: {.incremental}
+- But the results so far are all tied to one task.
 
-## What about a different task? 
+- We wanted to investigate the same type of question with a different task? Maybe a simpler dependent measure?
 
-- We wanted to move away from using Tajfel's matrices.
-- We setup a congruency task based on work in cognitive psychology / neuroscience.
+- We setup a conflict/congruency task based on work in cognitive psychology / neuroscience.
+:::
+
+## Conflict task manipulation
 
 :::: {.columns}
 
 ::: {.column width="50%" .fragment}
-**Step 1:** The other person's outcome is congruent or incongruent with your own.
-![](images/dots_conflict_zoom.png)
+![](images/dots_judgement_zoom.png)
 :::
 
 ::: {.column width="50%" .fragment}
-**Step 2:** Allocate money via points.
-![](images/dots_conflict_allocation_zoom.png)
+![](images/dots_conflict_zoom_2.png)
 :::
 ::::
+
+::: {.fragment}
+
+```{r}
+#| label: conflict-money-tab-data
+#| include: false
+
+conflict_money <- tibble(
+  "self/other judgment" = c("same", "different"),
+  condition = c("congruent", "incongruent")
+)
+
+conflict_money
+```
+
+```{r}
+#| label: conflict-money-tab
+
+conflict_money |>
+  gt() |>
+  fmt_markdown(columns = everything()) |>
+  tab_options(
+    table.width = pct(50),
+    table.font.size = px(26),
+    column_labels.font.weight = "bold"
+  ) |>
+  opt_stylize()
+```
+
+:::
+
+## Conflict task response
+
+::: {.image-large}
+![](images/dots_conflict_allocation_zoom.png)
+:::
 
 ## Congruency trial structure
 
@@ -827,51 +867,42 @@ More money will be allocated to others on congruent than incongruent trials, in 
 - Sameness versus difference ***between individuals*** is important to consider theoretically and empirically.
 
 ::: {.callout-important .fragment}
-## Constraints on generality
-We are ***not*** claiming that group division and social identity are unimportant or that differences between individuals can tell the whole story.
+## Caution! Constraints on generality 
+- We are ***not*** claiming that group division and social identity are unimportant 
+- We are ***not*** claiming that differences between individuals can tell the whole story
 :::
 
 ## Implications
 
-  - **Empirical:** When studying group bias and discrimination, sameness vs difference between individuals needs separating from the effect of group-based manipulations.
+  - **Empirical:** Sameness vs difference between individuals needs separating from group-based manipulations.
   
 ::: {.fragment}
-  - **Theoretical:** Core tenets of Social Identity Theory need revision:
+  - **Theoretical:** Social Identity Theory needs updating.
   
-      - Other cognitive and neural mechanisms are likely to be at play in social contexts, such as the affective consequences of domain-general conflict detection and resolution.
+      - Other cognitive and neural mechanisms are likely to be at play, such as the affective consequences of domain-general conflict detection and resolution.
       
 :::
 
-## Future directions
-
->Ok, fine, but groups are "perceived" or "implicitly construed", even when groups are never mentioned.
-
-::: {.fragment}
-Four things are relevant here:
-::: 
-
-::: {.fragment .text-small}
-1. We cannot rule this out empirically. 
-:::
-
-::: {.fragment .text-small}
-2. Such an interpretation is in direct opposition to the explicit claims made in Social Identity Theory [-@tajfel1979integrative]. 
-:::
-
-::: {.fragment .text-small}
-3. It is more difficult to conceptualise conflict tasks in terms of implicit groups.
-:::
-
-::: {.fragment .text-small}
-4. If true, it would potentially have an impact on the interpretation of many tasks.
-:::
-
-
 # New projects
 
-- [Social: Discrimination and group biases.]{.fragment .semi-fade-out fragment-index=1}
-- Cognitive: Event history analysis.
-- [Computational: Evidence accumulation models.]{.fragment .semi-fade-out fragment-index=1}
+<span class="fragment semi-fade-out" data-fragment-index="1">
+**Social: Discrimination and group biases**</span>  
+<div class="fragment semi-fade-out" data-fragment-index="1" style="font-size: 0.75em; margin-left: 0em; margin-top: 0em;">
+[Deschrijver & Ramsey, 2025, *PNAS*](https://www.pnas.org/doi/10.1073/pnas.2413797122)
+![](https://img.shields.io/badge/Open-Data-blue) ![](https://img.shields.io/badge/Open-Materials-green) ![](https://img.shields.io/badge/Open-Code-black) ![](https://img.shields.io/badge/Pre-Registered-orange)
+</div>
+
+**Cognitive: Event history analysis** 
+<div style="font-size: 0.75em; margin-left: 0em; margin-top: 0em;">
+[Panis & Ramsey, *In revision*](https://osf.io/preprints/psyarxiv/57bh6_v2) [Tutorial paper]
+![](https://img.shields.io/badge/Open-Data-blue) ![](https://img.shields.io/badge/Open-Materials-green) ![](https://img.shields.io/badge/Open-Code-black) 
+</div>
+
+<span class="fragment semi-fade-out" data-fragment-index="1">
+**Computational: Evidence accumulation models**</span>  
+<div class="fragment semi-fade-out" data-fragment-index="1" style="font-size: 0.75em; margin-left: 0em; margin-top: 0em;">
+[Parker & Ramsey, 2023, *QJEP*](https://journals.sagepub.com/doi/10.1177/17470218231176950) [Review paper]
+</div>
 
 ## Mean average performance
 
@@ -933,9 +964,24 @@ Four things are relevant here:
 
 # New projects
 
-- [Social: Discrimination and group biases.]{.fragment .semi-fade-out fragment-index=1}
-- [Cognitive: Event history analysis.]{.fragment .semi-fade-out fragment-index=1}
-- Computational: Evidence accumulation models.
+<span class="fragment semi-fade-out" data-fragment-index="1">
+**Social: Discrimination and group biases**</span>  
+<div class="fragment semi-fade-out" data-fragment-index="1" style="font-size: 0.75em; margin-left: 0em; margin-top: 0em;">
+[Deschrijver & Ramsey, 2025, *PNAS*](https://www.pnas.org/doi/10.1073/pnas.2413797122)
+![](https://img.shields.io/badge/Open-Data-blue) ![](https://img.shields.io/badge/Open-Materials-green) ![](https://img.shields.io/badge/Open-Code-black) ![](https://img.shields.io/badge/Pre-Registered-orange)
+</div>
+
+<span class="fragment semi-fade-out" data-fragment-index="1">
+**Cognitive: Event history analysis**</span>  
+<div class="fragment semi-fade-out" data-fragment-index="1" style="font-size: 0.75em; margin-left: 0em; margin-top: 0em;">
+[Panis & Ramsey, *In revision*](https://osf.io/preprints/psyarxiv/57bh6_v2) [Tutorial paper]
+![](https://img.shields.io/badge/Open-Data-blue) ![](https://img.shields.io/badge/Open-Materials-green) ![](https://img.shields.io/badge/Open-Code-black) 
+</div>
+
+**Computational: Evidence accumulation models**  
+<div style="font-size: 0.75em; margin-left: 0em; margin-top: 0em;">
+[Parker & Ramsey, 2023, *QJEP*](https://journals.sagepub.com/doi/10.1177/17470218231176950) [Review paper]
+</div>
 
 ## A problem in theory?
 
