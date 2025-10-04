@@ -168,9 +168,21 @@ theme_set(
 
 # New projects
 
-- Social: Discrimination and group biases.
-- [Cognitive: Event history analysis.]{.fragment .semi-fade-out fragment-index=1}
-- [Computational: Evidence accumulation models.]{.fragment .semi-fade-out fragment-index=1} 
+**Social: Discrimination and group biases**  
+<div style="font-size: 0.75em; margin-left: 1em; margin-top: 0.5em;">
+[Deschrijver & Ramsey, 2025, PNAS]()[![](https://img.shields.io/badge/Open-Data-blue)](https://osf.io/xxxxx) [![](https://img.shields.io/badge/Open-Materials-green)](https://osf.io/xxxxx) [![](https://img.shields.io/badge/Open-Code-black)](https://github.com/xxx) [![](https://img.shields.io/badge/Pre-Registered-orange)](https://osf.io/xxxxx) 
+</div>
+
+<span class="fragment semi-fade-out" data-fragment-index="1">**Cognitive: Event history analysis**</span>  
+<div class="fragment semi-fade-out" data-fragment-index="1" style="font-size: 0.75em; margin-left: 1em; margin-top: 0.5em;">
+[Panis & Ramsey, 2024, PsyRxiv]() [Tutorial paper]
+[![](https://img.shields.io/badge/Open-Data-blue)](https://osf.io/xxxxx) [![](https://img.shields.io/badge/Open-Materials-green)](https://osf.io/xxxxx) [![](https://img.shields.io/badge/Open-Code-black)](https://github.com/xxx) 
+</div>
+
+<span class="fragment semi-fade-out" data-fragment-index="1">**Computational: Evidence accumulation models**</span>  
+<div class="fragment semi-fade-out" data-fragment-index="1" style="font-size: 0.75em; margin-left: 1em; margin-top: 0.5em;">
+[Parker & Ramsey, 2023, QJEP]() [Review paper]
+</div>
 
 ## Discrimination and group biases 
 
@@ -229,92 +241,22 @@ theme_set(
 
 ## The minimal group paradigm
 
+::: {style="position: relative;"}
 ![](images/minimal_group_design.png)
+
+<!-- Incremental text in top right -->
+::: {style="position: absolute; top: 0%; right: 0%; max-width: 50%; background: rgba(255,255,255,0); padding: 1em; border-radius: 8px;"}
+::: {.incremental .text-small}
+- Assign values to other people (not yourself).
+- Select one option (two values).
+- Measure so-called "pull" scores.
+:::
+:::
+:::
 
 ::: {.citation-footer}
 [@tajfel1970; @tajfel1974]
 :::
-
-## Tajfel's matrices 
-
-```{r}
-#| label: matrix-example
-#| include: false
-
-matrix <- tibble(
-  Response = LETTERS[1:13],
-  "...member 8 of the **overestimators** group" = seq(19,7),
-  "...member 27 of the **underestimators** group" = seq(1,25, 2)
-) |>
-  pivot_longer(-Response, 
-               names_to = "Person", 
-               values_to = "value") |>
-  pivot_wider(names_from = Response, 
-              values_from = value)
-matrix
-```
-
-```{r}
-#| label: matrix-tab
-
-matrix |> 
-  gt() |>
-  fmt_markdown(columns = everything()) |> 
-  cols_width(
-    Person ~ pct(30)  # Make first column narrower
-  ) |> 
-  tab_options(
-    table.width = pct(100),
-    table.font.size = px(26),
-    column_labels.font.weight = "bold"
-  ) |>
-  opt_stylize()
-```
-
-::: {.incremental .text-small}
-- You always assign values to other people (not yourself).
-- Select one option (A-M), which corresponds to two values. In this example:
-  - M = Maximum joint profit (MJP).
-  - A = Ingroup favourtism (for overestimators) (FAV).
-- This example matrix measures the "pull" of **FAV** on **MJP**.
-
-:::
-
-::: {.citation-footer}
-[@bourhis1994]
-:::
-
-## Discriminatory strategies
-
-<br>
-
-```{r}
-#| label: discrim-types
-#| include: false
-
-discrim <- tribble(
-  ~Strategy, ~Label, ~Definition,
-  "Parity", "P", "Equal division between ingroup and outgroup",
-  "Maximum joint profit", "MJP", "Maximise points to the others in total",
-  "Maximum ingroup profit", "MIP", "Maximise points to ingroup members in absolute terms",
-  "Maximum differentiation", "MD", "Maximise the ingroup > outgroup difference",
-  "Favouritism", "FAV", "Combination of MD and MIP"
-)
-discrim
-```
-
-```{r}
-#| label: discrim-tab
-
-discrim |> 
-  gt() |> 
-  tab_options(
-    table.width = pct(100),
-    table.font.size = px(26),
-    column_labels.font.weight = "bold"
-  ) |>
-    opt_stylize()
-```
 
 ## Pull scores
 
@@ -373,23 +315,29 @@ pull_examples |>
 :::
 
 ::: {.column width="50%"}
-::: {.fragment}
+::: {.fragment .text-small}
 
+<br>
 
-Three types of discrimination "pull" scores.
+Three types of "pull" score are of interest.
 
 1. FAV vs MJP
-
 2. MD vs MIP/MJP
-
 3. FAV vs P
 
-All compare a discriminatory strategy against a more pro-social strategy.
+Each compares a discriminatory strategy against a more pro-social strategy.
 
 :::
 :::
 ::::
 
+## Minimal group findings {.no-title}
+
+![](images/schmidt_minimal_rain.png)
+
+::: {.citation-footer}
+[@schmidt2023]
+:::
 
 
 ## Minimal group tasks
@@ -403,7 +351,7 @@ All compare a discriminatory strategy against a more pro-social strategy.
 
 <!-- Image 2 - Center, middle layer -->
 ::: {style="position: absolute; top: 20%; left: 25%; z-index: 2;"}
-![](images/paintings.png){width="400px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
+![](images/paintings_pair1.png){width="400px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
 :::
 
 <!-- Image 3 - Bottom right, top layer -->
@@ -421,14 +369,6 @@ All compare a discriminatory strategy against a more pro-social strategy.
 
 ## mpg-4 {background-image="images/paintings_matrices.png" background-size="cover" background-color="#767676" .no-title}
 
-
-## Minimal group findings {.no-title}
-
-![](images/schmidt_minimal_rain.png)
-
-::: {.citation-footer}
-[@schmidt2023]
-:::
 
 ## Significance of the work
 
@@ -579,8 +519,8 @@ Are group division and social identity required to treat people differently?
 Resources will be allocated in favour of similar (versus dissimilar) individuals, in the absence of group division or social identity. 
 :::
 
-## Comparing research designs
 
+## Comparing research designs
 ::: {style="display: grid; grid-template-columns: auto repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 0.8em; height: 40vh; padding: 1em; position: relative;"}
 
 <!-- Row labels -->
@@ -588,7 +528,7 @@ Resources will be allocated in favour of similar (versus dissimilar) individuals
 **Original design**
 :::
 
-::: {style="grid-area: 2 / 1; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #666; font-size: 0.9em;"}
+::: {style="grid-area: 2 / 1; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #666; font-size: 0.9em;" .fragment data-fragment-index="1"}
 **Deschrijver & Ramsey (2025)**
 :::
 
@@ -596,20 +536,35 @@ Resources will be allocated in favour of similar (versus dissimilar) individuals
 ::: {style="grid-area: 1 / 2; background: #bbdefb; padding: 0.6em; text-align: center; border-radius: 6px; font-size: 0.85em;"}
 **Arbitrary choices/coin flip**
 :::
+
 ::: {style="grid-area: 1 / 3; background: #e1bee7; padding: 0.6em; text-align: center; border-radius: 6px; font-size: 0.85em;"}
 **Group division / categorisation**  
 :::
+
 ::: {style="grid-area: 1 / 4; background: #c8e6c9; padding: 0.6em; text-align: center; border-radius: 6px; font-size: 0.85em;"}
 **Money allocation / matrices**  
 :::
 
-<!-- Bottom row -->
-::: {style="grid-area: 2 / 2; background: #bbdefb; padding: 0.6em; text-align: center; border-radius: 6px; font-size: 0.85em;"}
+<!-- Bottom row - all appear together with same fragment index -->
+::: {style="grid-area: 2 / 2; background: #bbdefb; padding: 0.6em; text-align: center; border-radius: 6px; font-size: 0.85em;" .fragment data-fragment-index="1"}
 **Arbitrary choices/coin flip**  
 :::
-::: {style="grid-area: 2 / 4; background: #c8e6c9; padding: 0.6em; text-align: center; border-radius: 6px; font-size: 0.85em;"}
+
+::: {style="grid-area: 2 / 3; background: #e1bee7; padding: 0.6em; text-align: center; border-radius: 6px; font-size: 0.85em; position: relative;" .fragment data-fragment-index="1"}
+**Group division / categorisation**
+
+<!-- Red X overlay -->
+::: {style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+::: {style="color: red; font-size: 8em; font-weight: bold; line-height: 1;"}
+✗
+:::
+:::
+:::
+
+::: {style="grid-area: 2 / 4; background: #c8e6c9; padding: 0.6em; text-align: center; border-radius: 6px; font-size: 0.85em;" .fragment data-fragment-index="1"}
 **Money allocation / matrices**  
 :::
+
 :::
 
 ## Group manipulation
@@ -701,7 +656,7 @@ UK-based Prolific online sample. N=238 per experiment.
 
 <!-- Image 2 - Center, middle layer -->
 ::: {style="position: absolute; top: 15%; left: 30%; z-index: 2;"}
-![](images/paintings.png){width="350px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
+![](images/paintings_pair1.png){width="350px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
 :::
 
 <!-- Image 3 - Bottom right, top layer -->
@@ -803,7 +758,7 @@ UK-based Prolific online sample. N=75 per experiment.
 
 <!-- Image 2 - Center, middle layer -->
 ::: {style="position: absolute; top: 15%; left: 30%; z-index: 2;"}
-![](images/paintings.png){width="350px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
+![](images/paintings_pair1.png){width="350px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
 :::
 
 <!-- Image 3 - Bottom right, top layer -->
@@ -887,7 +842,7 @@ We are ***not*** claiming that group division and social identity are unimportan
       
 :::
 
-## Criticism
+## Future directions
 
 >Ok, fine, but groups are "perceived" or "implicitly construed", even when groups are never mentioned.
 
