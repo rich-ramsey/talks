@@ -171,14 +171,14 @@ theme_set(
 **Social: Discrimination and group biases** 
 <div style="font-size: 0.75em; margin-left: 0em; margin-top: 0em;">
 [Deschrijver & Ramsey, 2025, *PNAS*](https://www.pnas.org/doi/10.1073/pnas.2413797122)
-![](https://img.shields.io/badge/Open-Data-blue) ![](https://img.shields.io/badge/Open-Materials-green) ![](https://img.shields.io/badge/Open-Code-black) ![](https://img.shields.io/badge/Pre-Registered-orange)
+![](https://img.shields.io/badge/Open-Data-blue?style=for-the-badge){style="vertical-align: middle;"} ![](https://img.shields.io/badge/Open-Materials-green?style=for-the-badge){style="vertical-align: middle;"} ![](https://img.shields.io/badge/Open-Code-black?style=for-the-badge){style="vertical-align: middle;"} ![](https://img.shields.io/badge/Pre-Registered-orange?style=for-the-badge){style="vertical-align: middle;"}
 </div>
 
 <span class="fragment semi-fade-out" data-fragment-index="1">
 **Cognitive: Event history analysis**</span>  
 <div class="fragment semi-fade-out" data-fragment-index="1" style="font-size: 0.75em; margin-left: 0em; margin-top: 0em;">
 [Panis & Ramsey, *In revision*](https://osf.io/preprints/psyarxiv/57bh6_v2) [Tutorial paper]
-![](https://img.shields.io/badge/Open-Data-blue) ![](https://img.shields.io/badge/Open-Materials-green) ![](https://img.shields.io/badge/Open-Code-black) 
+![](https://img.shields.io/badge/Open-Data-blue?style=for-the-badge){style="vertical-align: middle;"} ![](https://img.shields.io/badge/Open-Materials-green?style=for-the-badge){style="vertical-align: middle;"} ![](https://img.shields.io/badge/Open-Code-black?style=for-the-badge){style="vertical-align: middle;"}
 </div>
 
 <span class="fragment semi-fade-out" data-fragment-index="1">
@@ -765,6 +765,9 @@ conflict_money
 conflict_money |>
   gt() |>
   fmt_markdown(columns = everything()) |>
+  cols_width(
+    everything() ~ pct(50)
+  ) |> 
   tab_options(
     table.width = pct(50),
     table.font.size = px(26),
@@ -889,13 +892,13 @@ More money will be allocated to others on congruent than incongruent trials, in 
 **Social: Discrimination and group biases**</span>  
 <div class="fragment semi-fade-out" data-fragment-index="1" style="font-size: 0.75em; margin-left: 0em; margin-top: 0em;">
 [Deschrijver & Ramsey, 2025, *PNAS*](https://www.pnas.org/doi/10.1073/pnas.2413797122)
-![](https://img.shields.io/badge/Open-Data-blue) ![](https://img.shields.io/badge/Open-Materials-green) ![](https://img.shields.io/badge/Open-Code-black) ![](https://img.shields.io/badge/Pre-Registered-orange)
+![](https://img.shields.io/badge/Open-Data-blue?style=for-the-badge){style="vertical-align: middle;"} ![](https://img.shields.io/badge/Open-Materials-green?style=for-the-badge){style="vertical-align: middle;"} ![](https://img.shields.io/badge/Open-Code-black?style=for-the-badge){style="vertical-align: middle;"} ![](https://img.shields.io/badge/Pre-Registered-orange?style=for-the-badge){style="vertical-align: middle;"}
 </div>
 
 **Cognitive: Event history analysis** 
 <div style="font-size: 0.75em; margin-left: 0em; margin-top: 0em;">
 [Panis & Ramsey, *In revision*](https://osf.io/preprints/psyarxiv/57bh6_v2) [Tutorial paper]
-![](https://img.shields.io/badge/Open-Data-blue) ![](https://img.shields.io/badge/Open-Materials-green) ![](https://img.shields.io/badge/Open-Code-black) 
+![](https://img.shields.io/badge/Open-Data-blue?style=for-the-badge){style="vertical-align: middle;"} ![](https://img.shields.io/badge/Open-Materials-green?style=for-the-badge){style="vertical-align: middle;"} ![](https://img.shields.io/badge/Open-Code-black?style=for-the-badge){style="vertical-align: middle;"}
 </div>
 
 <span class="fragment semi-fade-out" data-fragment-index="1">
@@ -968,14 +971,14 @@ More money will be allocated to others on congruent than incongruent trials, in 
 **Social: Discrimination and group biases**</span>  
 <div class="fragment semi-fade-out" data-fragment-index="1" style="font-size: 0.75em; margin-left: 0em; margin-top: 0em;">
 [Deschrijver & Ramsey, 2025, *PNAS*](https://www.pnas.org/doi/10.1073/pnas.2413797122)
-![](https://img.shields.io/badge/Open-Data-blue) ![](https://img.shields.io/badge/Open-Materials-green) ![](https://img.shields.io/badge/Open-Code-black) ![](https://img.shields.io/badge/Pre-Registered-orange)
+![](https://img.shields.io/badge/Open-Data-blue?style=for-the-badge){style="vertical-align: middle;"} ![](https://img.shields.io/badge/Open-Materials-green?style=for-the-badge){style="vertical-align: middle;"} ![](https://img.shields.io/badge/Open-Code-black?style=for-the-badge){style="vertical-align: middle;"} ![](https://img.shields.io/badge/Pre-Registered-orange?style=for-the-badge){style="vertical-align: middle;"}
 </div>
 
 <span class="fragment semi-fade-out" data-fragment-index="1">
 **Cognitive: Event history analysis**</span>  
 <div class="fragment semi-fade-out" data-fragment-index="1" style="font-size: 0.75em; margin-left: 0em; margin-top: 0em;">
 [Panis & Ramsey, *In revision*](https://osf.io/preprints/psyarxiv/57bh6_v2) [Tutorial paper]
-![](https://img.shields.io/badge/Open-Data-blue) ![](https://img.shields.io/badge/Open-Materials-green) ![](https://img.shields.io/badge/Open-Code-black) 
+![](https://img.shields.io/badge/Open-Data-blue?style=for-the-badge){style="vertical-align: middle;"} ![](https://img.shields.io/badge/Open-Materials-green?style=for-the-badge){style="vertical-align: middle;"} ![](https://img.shields.io/badge/Open-Code-black?style=for-the-badge){style="vertical-align: middle;"} 
 </div>
 
 **Computational: Evidence accumulation models**  
