@@ -48,7 +48,7 @@ theme_set(
 
 ::: {.no-title}
 
-## Big picture research interests {background-image="images/cards.png" background-size="cover"}
+## Big picture research interests {background-image="images/cards.jpg" background-size="cover"}
 
 ::: {.image-footer}
 [Le Tricheur à l’as de carreau by Georges de la Tour (c. 1635)]
@@ -354,17 +354,17 @@ Each compares a discriminatory strategy against a more pro-social strategy.
 
 <!-- Image 2 - Center, middle layer -->
 ::: {style="position: absolute; top: 20%; left: 25%; z-index: 2;"}
-![](images/paintings_pair1.png){width="400px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
+![](images/paintings_pair1.jpg){width="400px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
 :::
 
 <!-- Image 3 - Bottom right, top layer -->
 ::: {style="position: absolute; top: 40%; left: 45%; z-index: 3;"}
-![](images/coin.png){width="400px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
+![](images/coin.jpg){width="400px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
 :::
 
 :::
 
-## mpg-1 {background-image="images/paintings_pair1.png" background-size="cover" background-color="#767676" .no-title}
+## mpg-1 {background-image="images/paintings_pair1.jpg" background-size="cover" background-color="#767676" .no-title}
 
 ## mpg-2 {background-image="images/paintings_judgement.png" background-size="cover" background-color="#767676" .no-title}
 
@@ -576,7 +576,7 @@ Resources will be allocated in favour of similar (versus dissimilar) individuals
 
 <!-- Image 1 - Top left, bottom layer -->
 ::: {style="position: absolute; top: 0%; left: 5%; z-index: 1;"}
-![](images/paintings_pair1.png){width="350px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
+![](images/paintings_pair1.jpg){width="350px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
 :::
 
 <!-- Image 2 - Center, middle layer -->
@@ -602,7 +602,7 @@ Resources will be allocated in favour of similar (versus dissimilar) individuals
 
 <!-- Image 1 - Top left, bottom layer -->
 ::: {style="position: absolute; top: 0%; left: 5%; z-index: 1;"}
-![](images/paintings_pair1.png){width="350px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
+![](images/paintings_pair1.jpg){width="350px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
 :::
 
 <!-- Image 2 - Center, middle layer -->
@@ -659,12 +659,12 @@ UK-based Prolific online sample. N=238 per experiment.
 
 <!-- Image 2 - Center, middle layer -->
 ::: {style="position: absolute; top: 15%; left: 30%; z-index: 2;"}
-![](images/paintings_pair1.png){width="350px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
+![](images/paintings_pair1.jpg){width="350px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
 :::
 
 <!-- Image 3 - Bottom right, top layer -->
 ::: {style="position: absolute; top: 30%; left: 50%; z-index: 3;"}
-![](images/coin.png){width="350px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
+![](images/coin.jpg){width="350px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
 :::
 
 :::
@@ -801,12 +801,12 @@ UK-based Prolific online sample. N=75 per experiment.
 
 <!-- Image 2 - Center, middle layer -->
 ::: {style="position: absolute; top: 15%; left: 30%; z-index: 2;"}
-![](images/paintings_pair1.png){width="350px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
+![](images/paintings_pair1.jpg){width="350px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
 :::
 
 <!-- Image 3 - Bottom right, top layer -->
 ::: {style="position: absolute; top: 30%; left: 50%; z-index: 3;"}
-![](images/coin.png){width="350px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
+![](images/coin.jpg){width="350px" style="border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);"}
 :::
 
 :::
@@ -1116,7 +1116,7 @@ lba_params |>
 
 :::: {.columns}
 ::: {.column width="50%"}
-![](images/cards.png)
+![](images/cards.jpg)
 :::
 
 ::: {.column width="50%"}
