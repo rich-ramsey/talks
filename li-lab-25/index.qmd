@@ -1,0 +1,456 @@
+---
+title: "My background and possible connections with the Learning and Instruction Lab"
+subtitle: "[rich-ramsey.github.io/talks/li-lab-25/](https://rich-ramsey.github.io/talks/li-lab-25/){target='_blank'}"
+author: "Richard Ramsey  \n[www.rich-ramsey.com](https://rich-ramsey.com){target='_blank' style='color:#2a76dd; font-size:22pt;'}  \n![](../images/eth.png){width='200px'}"
+venue: "ETH Zurich"
+location: "Zurich, Switzerland"
+metadata:
+  presentation-date: "2025-10-21"  # Custom metadata field
+bibliography: references.bib
+nocite: |
+  [@kruschke2014; @winter2019; @mcelreath2020]
+format:
+  revealjs:
+      slide-number: true
+      embed-resources: true
+      transition: none
+      transition-speed: fast
+      background-transition: none
+      link-external-newwindow: true
+      logo: ../images/cbs_hex.png
+      css: 
+        - ../style.css
+        - li-lab-25-style.css
+      pointer: 
+        pointerSize: 18
+        color: "#32cd32" # green pointer
+revealjs-plugins:
+  - pointer
+editor: source
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+library(gt)
+
+knitr::opts_chunk$set(echo = FALSE)
+
+theme_set(
+  theme_bw() +
+    theme(text = element_text(size = 22, face = "bold"),
+          title = element_text(size = 22, face = "bold"),
+          legend.position = "none")
+)
+```
+
+::: {.no-title}
+
+## Big picture research interests {background-image="images/cards.jpg" background-size="cover"}
+
+::: {.image-footer}
+[Le Tricheur à l’as de carreau by Georges de la Tour (c. 1635)]
+:::
+
+:::
+
+# Today
+
+- Brief biography
+- Past research interests
+- Motivating context
+- Data science
+- Opportunities with the Learning and Instruction Lab
+
+# Brief biography
+
+```{r}
+#| label: bio-tab-data
+#| include: false
+
+bio <- tribble(
+  ~Position, ~Topic, ~Year, ~Place,
+  "BSc.", "Sport & Exercise Science", "2001-2004", "Birmingham, UK",
+  "PhD", "Sport Psychology & Cognitive Neuroscience", "2004-2008", "Birmingham, UK",
+  "Postdoc", "Social & Cognitive Neuroscience", "2007-2011", "Nottingham, UK",
+  "Postdoc", "Social & Cognitive Neuroscience", "2011", "UCL, Belgium",
+  "Lecturer,
+  Senior Lecturer,
+  Reader", "Social & Cognitive Neuroscience", "2011-2019", "Bangor University, UK",
+  "Associate Professor", "Social & Cognitive Neuroscience", "2020-2023", "Macquarie University, Australia",
+  "Senior Scientist", "Social & Cognitive Neuroscience", "2023-", "ETH Zurich",
+) |> 
+  rename('Degree/Research Theme' = Topic)
+
+bio
+```
+
+```{r}
+#| label: bio-tab
+
+bio |>
+  gt() |>
+  fmt_markdown(columns = everything()) |>
+  cols_align(
+    align = "left",
+    columns = Year
+  ) |>
+  cols_width(
+    Position ~ pct(15), # 
+    `Degree/Research Theme` ~ pct(40), # 
+    Year ~ pct(15), # 
+    Place ~ pct(30) # 
+  ) |>
+  tab_options(
+    table.width = pct(100),
+    table.font.size = px(26),
+    column_labels.font.weight = "bold"
+  ) |>
+  opt_stylize()
+```
+
+## Relevant experience
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- Balanced academic roles
+  - research, teaching and leadership
+- 10 PhD students to completion as PI
+- 5 postdocs
+- Grant funding
+
+:::
+
+::: {.column width="50%" .fragment}
+- Teaching (20+ years in higher education)
+  - sport psychology, cognitive neuroscience, methods & meta-science
+- Leadership
+  - PhD committee chair
+
+:::
+
+::::
+
+
+## Past research interests 
+
+::: {.research-grid style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5em; padding: 1em; max-width: 90%; margin-left: 0;"}
+
+::: {.research-item}
+[![](images/person_perception.png)
+**Person perception**](www.mitpressjournals.org/doi/abs/10.1162/jocn_a_01299){target="_blank"}
+:::
+
+::: {.research-item}
+[![](images/imitation.png){style="width: 120px; height: 120px;"}  
+**Imitation**](https://doi.org/10.1162/jocn_a_01261){target="_blank"}
+:::
+
+::: {.research-item}
+[![](images/lonely.png){style="width: 120px; height: 120px;"}
+**Loneliness**](https://doi.org/10.1093/arclin/acab046){target="_blank"}
+:::
+
+::: {.research-item}
+[![](images/observational_learning.png)
+**Observational learning**](https://www.jneurosci.org/content/38/47/10114){target="_blank"}
+:::
+
+::: {.research-item}
+[![](images/art.png)
+**Neuroaesthetics**]( https://doi.org/10.1111/ejn.15479){target="_blank"}
+:::
+
+::: {.research-item}
+[![](images/behaviour.png) 
+**Behaviour**](https://doi.org/10.1016/j.concog.2018.08.006){target="_blank"}
+:::
+
+::: {.research-item}
+[![](images/mri.png)
+**fMRI**](https://doi.org/10.1162/jocn_a_01299){target="_blank"}
+:::
+
+::: {.research-item}
+[![](images/metascience.png) 
+**Metascience**](https://doi.org/10.1525/collabra.24091){target="_blank"}
+:::
+
+::: {.research-item}
+[![](images/theory.png)
+**Theoretical work**](https://doi.org/10.1177/1745691620904972){target="_blank"}
+:::
+
+::: {.research-item}
+[![](images/computational_model.png) 
+**Computational modelling**](https://doi.org/10.1111/cogs.13415){target="_blank"}
+:::
+
+:::
+
+# Motivating context
+
+## Wheel of death
+
+::: {.figure-container}
+::: {.img-v-large}
+![](images/wheel_of_death.png)
+:::
+:::
+
+::: {.citation-footer}
+[@munafo2017]
+:::
+
+## Towards a cumulative science? 
+
+::: {.image-container .img-full}
+![](images/science_wordcloud.png)
+:::
+
+::: {.citation-footer}
+[@munafo2017; @ramsey2020; @ramsey2021]
+:::
+
+## Show of hands
+
+Who does the following?
+
+✋ = sometimes | ✋✋ = routinely
+
+:::: {.columns}
+::: {.column width="45%" .incremental}
+
+- Shares data
+- Shares code
+- Performs code review
+- Shares materials
+- Pre-registers experiments
+
+:::
+
+::: {.column width="55%" .incremental}
+- Uses version control (e.g., git)
+- Consults a statistician
+- Pre-prints papers
+- Replicates their own work
+- Uses formal theory
+:::
+
+::::
+
+# Data science
+
+## Data science  
+
+![](images/ds_workflow.jpg)
+
+## R for Data science  
+
+:::: {.columns}
+::: {.column width="50%"}
+
+<br>
+
+- R for Data Science
+- A free, online book: [https://r4ds.hadley.nz/](https://r4ds.hadley.nz/)
+- Or buy the hard copy
+- This should be your data science bible
+:::
+
+::: {.column width="50%"}
+::: {.image-container .img-large}
+![](images/r4ds.jpg)
+:::
+:::
+::::
+
+## Reproducible data science ##
+
+<br>
+
+:::: {.columns}
+::: {.column width="60%"}
+![](images/excel.jpg)
+:::
+::: {.column width="40%"}
+- No Excel sheets !
+- Instead:
+- A raw data file (i.e., trial level data with no exclusions).
+- An analysis script (or set of scripts)
+:::
+::::
+
+## Openness
+
+<br>
+
+:::: {.columns}
+::: {.column width="25%"}
+![](https://img.shields.io/badge/Open-Data-blue?style=for-the-badge){style="width: 200px;"}
+
+![](https://img.shields.io/badge/Open-Code-black?style=for-the-badge){style="width: 200px;"}
+
+![](https://img.shields.io/badge/Open-Materials-green?style=for-the-badge){style="width: 200px;"}
+
+![](https://img.shields.io/badge/Open-Preprints-red?style=for-the-badge){style="width: 200px;"}
+:::
+
+::: {.column width="25%"}
+::: {style="text-align: center;"}
+![](https://cdn.cos.io/media/images/cos_center_logo_small.original.png){width="150px"}
+
+**Open Science Framework**
+:::
+:::
+
+::: {.column width="25%"}
+::: {style="text-align: center;"}
+![](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png){width="150px"}
+
+**GitHub**
+:::
+:::
+
+::: {.column width="25%"}
+::: {style="text-align: center;"}
+![](images/psyarxiv.png){width="150px"}
+
+**PsyArXiv**
+:::
+:::
+
+::::
+
+## Rstats
+
+:::: {.columns}
+::: {.column width="33.3%"}
+![](images/winter_book.jpg){fig-align="center" height="500px"}
+:::
+
+::: {.column width="33.3%"}
+![](images/mcelreath_book.jpg){fig-align="center" height="500px"}
+:::
+
+::: {.column width="33.3%"}
+![](images/kruschke_book.jpg){fig-align="center" height="500px"}
+:::
+::::
+
+## Reproducible scientific workflows
+
+<br>
+<br>
+
+<https://quarto.org/>{preview-link="true"}
+
+::: {.fragment}
+
+<br>
+
+A tutorial from my lab:
+<https://github.com/rich-ramsey/reproducible_workflow_quarto>{}
+
+:::
+
+# Opportunities with the Learning and Instruction Lab
+
+## Data science and Rstats {.incremental}
+
+::: {.incremental}
+
+- Infrastructure and openness (mainly in R).
+- Data wrangling and visualisation
+- Bayesian multi-level regression models
+- Planning studies via data simulation
+- Git and version control
+- Reproducible workflows via Quarto
+
+:::
+
+## Learning 
+
+::: {.incremental}
+
+- Get me out of the lab and into the "real world" ...
+- How does plasticity in cognitive and brain mechanisms support learning?
+- How do visuo-motor "training" interventions compare to learning interventions?
+- Can questions and measures be motivated by cognitive neuroscience (e.g., group bias, observational learning etc.)?
+- Can we kick-start a conversation about new projects?
+
+:::
+
+## Acknowledgements {.smaller}
+
+:::: {.columns}
+::: {.column width="33.3%"}
+
+- Inez Greven
+- Emily Butler
+- Andrew Wildman
+- Ionela Bara
+- Chris Byrne
+- Kohinoor Darda
+- Dace Apšvalka
+- Kohinoor Darda
+- Raphaël Fournier
+
+:::
+
+::: {.column width="33.3%"}
+
+- Paul Downing
+- Emily Cross
+- Rudi Coetzer
+- Eliane Deschrijver
+- Rob Ward
+- Richard Binney
+- Dave Kaplan
+- Sam Parker
+- Sven Panis
+
+:::
+
+::: {.column width="33.3%"}
+
+![](images/esrc.png){width=200px}
+![](images/mod.png){width="200px"}
+
+![](images/arc.png){width=200px}
+![](images/wellcome.png){width=200px}
+:::
+::::
+
+
+## And here's my stuff
+
+<br>
+
+-   Slides: [www.rich-ramsey.github.io/talks/li-lab-25/](rich-ramsey.github.io/talks/uni-leeds-25/){target='_blank'}
+
+-   Code: [https://github.com/rich-ramsey/talks](rich-ramsey.github.io/talks/){target='_blank'}
+
+-   Website: [www.rich-ramsey.com](www.rich-ramsey.com){target='_blank'}
+
+-   Github: <https://github.com/rich-ramsey>{target='_blank'}
+
+::: {style="text-align: center;"}
+![](../images/website-qr.svg){width="200px"}
+:::
+
+## References
+
+::: {#refs style="font-size: 0.8em;"}
+:::
+
+## Resources 
+
+- Unless otherwise specified, icons were used under license from [The Noun Project](https://thenounproject.com/)
+
+- Slides were created with [Quarto](https://quarto.org/) and [RevealJS](https://revealjs.com/)
