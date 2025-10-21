@@ -250,14 +250,12 @@ bio |>
 [@munafo2017; @ramsey2020; @ramsey2021]
 :::
 
-## Show of hands
-
-Who does the following?
+## Who does the following?
 
 ✋ = sometimes | ✋✋ = routinely
 
 :::: {.columns}
-::: {.column width="45%" .incremental}
+::: {.column width="45%"}
 
 - Shares data
 - Shares code
@@ -267,7 +265,7 @@ Who does the following?
 
 :::
 
-::: {.column width="55%" .incremental}
+::: {.column width="55%" .fragment}
 - Uses version control (e.g., git)
 - Consults a statistician
 - Pre-prints papers
